@@ -39,8 +39,17 @@ nav
 			text-align: center
 			line-height: 16px
 			font-size: 16px
+			border-bottom: 1px solid transparent
 
 			// Spacing between the links
-			padding: 8px 5px
-			margin: 7px 5px
+			padding: 8px 2px 4px
+			margin: 7px 7px
 			display: inline-block
+
+			// Effect
+			transition: all .3s ease-in-out 0s
+
+			// Hover effect
+			&:hover
+				border-bottom: 1px solid $txtS
+				transition: all .3s ease-in-out 0s
