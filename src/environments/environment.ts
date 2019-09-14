@@ -13,7 +13,8 @@ export const environment = {
 		databaseURL: key.databaseURL,
 		projectId: key.projectId,
 		storageBucket: key.storageBucket,
-		messagingSenderId: key.messagingSenderId
+		messagingSenderId: key.messagingSenderId,
+		appId: key.appId
 	}
 };
 
