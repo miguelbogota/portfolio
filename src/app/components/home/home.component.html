@@ -9,8 +9,8 @@
     <p class="pa-about">
       I'm a proggramer that likes to program... Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro aperiam libero ea voluptatum voluptatem ipsam, reprehenderit a dolorem totam, sapiente molestiae inventore debitis quas, minima neque autem. Reprehenderit, excepturi dolorum?
     </p>
-    <!-- Link to send to about -->
-    <a routerLink="/about">See full about me</a>
+    <!-- Link to go to about -->
+    <a class="link" routerLink="/about">See full about me</a>
   </div>
 
   <!-- Resume with my latest projects -->
@@ -25,10 +25,17 @@
     <h2>Latest Projects</h2>
     <!-- Project's name -->
     <h3>Title project</h3>
-    <!-- Project's preview -->
-    <div class="preview"></div>
+    <!-- Project's preview and link to go to the project-->
+    <a class="link-preview">
+      <img class="preview" src="https://www.isitwp.com/wp-content/uploads/2018/03/wordpress.jpg" alt="web-site preview">
+      <!-- Hover message -->
+      <div class="text">Click the image to see the project</div>
+    </a>
     <!-- Project's short description -->
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae mollitia accusantium maiores f</p>
+    <!-- Link to go to portfolio -->
+    <a class="link" routerLink="/portfolio">Go to all projects</a>
+
   </div>
 
 </div>

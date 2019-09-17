@@ -5,6 +5,16 @@
 // Margin between each component
 $marginBottom: 78px
 
+// Links
+.link
+  color: #147399
+  cursor: pointer
+  font-weight: 600
+
+// Effect when hover preview
+@mixin effect
+  transition: all .3s linear
+
 /*-----------------------------------------------------------*/
 /*                          Home                             */
 /*-----------------------------------------------------------*/
@@ -16,26 +26,38 @@ $marginBottom: 78px
 
   // Short info about me
   .short-about
-    text-align: center
-    margin: 31px 0px $marginBottom
+    text-align: right
+    margin: 23px 0px $marginBottom
 
     // Title
     h2
       font-size: 18px
       margin-bottom: 13px
       font-weight: 600
+      text-align: center
+
+    // Short info about myself
+    .pa-about
+      text-align: center
+
+    // Link to go to about
+    .link
+      display: inline-block
+      margin: 20px 11% 0px 0px
   
-  // ------------------------- //
+  // -------------------------------------- //
 
   // Latest projects
   .latest-projects
-    text-align: center
+    text-align: right
     margin: 0px 0px $marginBottom
     
     // Arrows
     .arrows
+      text-align: center
       height: 0px
       position: relative
+      cursor: pointer
 
       a
         position: relative
@@ -57,24 +79,63 @@ $marginBottom: 78px
 
     // Title
     h2
+      text-align: center
       font-size: 18px
       margin-bottom: 19px
       font-weight: 600
 
     // Project's name
     h3
+      text-align: center
       font-size: 14px
       margin-bottom: 20px
     
-    // Project's preview
-    .preview
+    // Project's preview and link
+    .link-preview
       width: 100%
-      height: 200px
+      height: 230px
       display: block
-      background-color: #232ea311
-      margin-bottom: 13px
+      text-align: center
+      background: radial-gradient(50% 90% at center, #202020, #202020, #000000)
+      margin-bottom: 7px
+      cursor: pointer
+
+      // Hover effect for the image
+      &:hover .preview
+        opacity: .36
+        @include effect
+
+      // HOver effect for the text
+      &:hover .text
+        background-color: #12485e
+        @include effect
+
+      // When click
+      &:active
+        background-color: #94cde49f
+
+      // Image with preview
+      .preview
+        width: 100%
+        height: calc(100% - 30px)
+        display: block
+        opacity: 1
+        @include effect
+
+      // Text to click
+      .text
+        display: block
+        line-height: 30px
+        background-color: $bgLightP
+        color: $txtP
+        @include effect
 
     // Short description
     p
+      text-align: center
       font-size: 14px
 
+    // Link to go to porfolio
+    .link
+      display: inline-block
+      margin: 20px 11% 0px 0px
