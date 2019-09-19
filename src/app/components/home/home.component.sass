@@ -3,7 +3,7 @@
 @import '../../../sass/_mixins'
 	
 // Margin between each component
-$marginBottom: 78px
+$marginBottom: 92px
 
 // Links
 .link
@@ -13,7 +13,7 @@ $marginBottom: 78px
 
 // Effect when hover preview
 @mixin effect
-  transition: all .3s linear
+  transition: all .14s linear
 
 /*-----------------------------------------------------------*/
 /*                          Home                             */
@@ -22,7 +22,7 @@ $marginBottom: 78px
 // Conatiner
 .home-container
   // Defaults for the component
-  padding: 17px 9% 0px
+  padding: 17px 8% 0px
 
   // Short info about me
   .short-about
@@ -61,7 +61,7 @@ $marginBottom: 78px
 
       a
         position: relative
-        bottom: -17px
+        bottom: 17px
         padding: 9px 15px
         border-radius: 50%
 
@@ -81,60 +81,52 @@ $marginBottom: 78px
     h2
       text-align: center
       font-size: 18px
-      margin-bottom: 19px
+      margin-bottom: 23px
       font-weight: 600
 
-    // Project's name
-    h3
+    // Card with the project
+    .card
+      border: 1px solid $txtP
       text-align: center
-      font-size: 14px
-      margin-bottom: 20px
-    
-    // Project's preview and link
-    .link-preview
-      width: 100%
-      height: 230px
       display: block
-      text-align: center
-      background: radial-gradient(50% 90% at center, #202020, #202020, #000000)
-      margin-bottom: 7px
-      cursor: pointer
+      @include effect
 
-      // Hover effect for the image
-      &:hover .preview
-        opacity: .36
+      // Hover effect
+      &:hover
+        box-shadow: 0 0px 20px 0 #0000001f, 0 10px 30px 0 #00000011
+        transform: translate(0px, -4px)
         @include effect
-
-      // HOver effect for the text
-      &:hover .text
-        background-color: #12485e
-        @include effect
-
-      // When click
-      &:active
-        background-color: #94cde49f
-
-      // Image with preview
-      .preview
+      
+      // Link
+      .link-preview
+        cursor: pointer
+        display: block
         width: 100%
-        height: calc(100% - 30px)
-        display: block
-        opacity: 1
-        @include effect
+        
+        // Image preview
+        .preview
+          width: 100%
+          height: 180px
+          padding: 30px 30px
+          display: block
+          box-sizing: border-box
 
-      // Text to click
-      .text
-        display: block
-        line-height: 30px
-        background-color: $bgLightP
-        color: $txtP
-        @include effect
+        // Project's name
+        h3
+          font-size: 16px
+          margin: 23px 0px
+          font-weight: 600
+          
+        // Short description
+        p
+          padding: 0px 20px 20px
 
-    // Short description
-    p
-      text-align: center
-      font-size: 14px
-
+        // Link to see the project
+        .text
+          color: #147399
+          font-weight: 600
+          padding-bottom: 24px
+    
     // Link to go to porfolio
     .link
       display: inline-block
