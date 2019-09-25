@@ -1,6 +1,10 @@
 // Imports
 @import '../../../sass/_variables'
 @import '../../../sass/_mixins'
+
+// Active link
+.active
+	border-bottom: 1px solid $txtS !important
 	
 /*-----------------------------------------------------------*/
 /*                           Nav                             */
@@ -12,44 +16,47 @@ nav
 	padding: 30px 5% 10px
 	box-sizing: border-box
 
-	.home-link
-		// Make the home button takes all the screen
-		width: 100%
-		padding: 8px 0px
-		background-color: $bgP
-		display: block
-		border-radius: 2px
+	// Conatiner
+	.container
 
-		// Color for the home button's text
-		color: $txtP
-		text-align: center
-		font-weight: 600
-		font-size: 16px
-		line-height: 16px
-	
-	.nav-bar
-		// Fit links and center them
-		width: fit-content
-		margin: 0px auto
-		display: block
+		.home-link
+			// Make the home button takes all the screen
+			width: 100%
+			padding: 8px 0px
+			background-color: $bgP
+			display: block
+			border-radius: 2px
 
-		.nav-link
-			// Color and size for each link
-			color: $txtS
+			// Color for the home button's text
+			color: $txtP
 			text-align: center
-			line-height: 16px
+			font-weight: 600
 			font-size: 16px
-			border-bottom: 1px solid transparent
+			line-height: 16px
+		
+		.nav-bar
+			// Fit links and center them
+			width: fit-content
+			margin: 0px auto
+			display: block
 
-			// Spacing between the links
-			padding: 8px 2px 4px
-			margin: 7px 7px
-			display: inline-block
+			.nav-link
+				// Color and size for each link
+				color: $txtS
+				text-align: center
+				line-height: 16px
+				font-size: 16px
+				border-bottom: 1px solid transparent
 
-			// Effect
-			transition: all .3s ease-in-out 0s
+				// Spacing between the links
+				padding: 8px 2px 4px
+				margin: 7px 7px
+				display: inline-block
 
-			// Hover effect
-			&:hover
-				border-bottom: 1px solid $txtS
+				// Effect
 				transition: all .3s ease-in-out 0s
+
+				// Hover effect
+				&:hover
+					border-bottom: 1px solid $txtS
+					transition: all .3s ease-in-out 0s
