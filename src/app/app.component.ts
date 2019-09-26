@@ -5,7 +5,7 @@ import { slide } from './animations/slide';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./app.component.sass'],
+	styleUrls: ['./app.component.scss'],
 	animations: [
 		slide
 	]

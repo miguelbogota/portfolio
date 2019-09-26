@@ -1,17 +1,18 @@
 // Imports
-@import '_variables'
+@import '_variables';
 	
 /*-----------------------------------------------------------*/
 /*                         Global                            */
 /*-----------------------------------------------------------*/
 
 // Links
-.link
-  color: #147399
-  cursor: pointer
-  font-weight: 600
-
+.link {
+  color: #147399;
+  cursor: pointer;
+  font-weight: 600;
+}
 // Conatiner
-.container
+.container {
   // Defaults for the component
-  padding: 0px 7% 0px
+  padding: 0px 7% 0px;
+}

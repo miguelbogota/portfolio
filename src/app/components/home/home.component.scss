@@ -1,0 +1,145 @@
+// Imports
+@import '../../../styles/variables';
+	
+// Margin between each component
+$marginBottom: 92px;
+
+/*-----------------------------------------------------------*/
+/*                          Home                             */
+/*-----------------------------------------------------------*/
+
+// Home conatiner
+.home-container {
+  margin: 23px 0px 0px;
+
+  // Short info about me
+  .short-about {
+    text-align: right;
+    margin: 0px 0px $marginBottom;
+
+    // Title
+    h2 {
+      font-size: 18px;
+      margin-bottom: 13px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    // Short info about myself
+    .pa-about {
+      text-align: center;
+    }
+
+    // Link to go to about
+    .link {
+      display: inline-block;
+      margin: 20px 11% 0px 0px;
+    }
+  }
+
+  // -------------------------------------- //
+
+  // Latest projects
+  .latest-projects {
+    text-align: right;
+    margin: 0px 0px $marginBottom;
+    
+    // Arrows
+    .arrows {
+      text-align: center;
+      height: 0px;
+      position: relative;
+      cursor: pointer;
+
+      // Arrows effect
+      a {
+        position: relative;
+        bottom: 17px;
+        padding: 9px 15px;
+        border-radius: 50%;
+
+        &:active {
+          background-color: #94cde49f;
+        }
+      }
+
+      // Arrows position
+      .arrow-left {
+        display: inline-block;
+        left: -33%;
+      }
+
+      .arrow-right {
+        display: inline-block;
+        right: -33%;
+      }
+
+    }
+
+    // Title
+    h2 {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 23px;
+      font-weight: 600;
+    }
+
+    // Card with the project
+    .card {
+      border: 1px solid $txtP;
+      text-align: center;
+      display: block;
+      @include effect;
+
+      // Hover effect
+      &:hover {
+        box-shadow: 0 0px 20px 0 #0000001f, 0 10px 30px 0 #00000011;
+        transform: translate(0px, -4px);
+        @include effect;
+      }
+      
+      // Link
+      .link-preview {
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        
+        // Image preview
+        .preview {
+          width: 100%;
+          height: 180px;
+          padding: 30px 30px;
+          display: block;
+          box-sizing: border-box;
+        }
+
+        // Project's name
+        h3 {
+          font-size: 16px;
+          margin: 23px 0px;
+          font-weight: 600;
+        }
+          
+        // Short description
+        p {
+          padding: 0px 20px 20px;
+        }
+
+        // Link to see the project
+        .text {
+          color: #147399;
+          font-weight: 600;
+          padding-bottom: 24px;
+        }
+
+      }
+    }
+    
+    // Link to go to porfolio
+    .link {
+      display: inline-block;
+      margin: 20px 11% 0px 0px;
+    }
+  }
+
+}
