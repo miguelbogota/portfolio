@@ -1,10 +1,12 @@
 // Imports
 @import '../../../sass/_variables'
-@import '../../../sass/_mixins'
+
+// Bottom border thickness
+$borderThick: 1.5px
 
 // Active link
 .active
-	border-bottom: 1px solid $txtS !important
+	border-bottom: $borderThick solid $txtS !important
 	
 /*-----------------------------------------------------------*/
 /*                           Nav                             */
@@ -13,44 +15,30 @@
 nav
 	// Navbar size
 	width: 100%
-	padding: 30px 5% 10px
+	padding: 20px 0px
 	box-sizing: border-box
 
 	// Conatiner
 	.container
-
-		.home-link
-			// Make the home button takes all the screen
-			width: 100%
-			padding: 8px 0px
-			background-color: $bgP
-			display: block
-			border-radius: 2px
-
-			// Color for the home button's text
-			color: $txtP
-			text-align: center
-			font-weight: 600
-			font-size: 16px
-			line-height: 16px
 		
 		.nav-bar
 			// Fit links and center them
 			width: fit-content
 			margin: 0px auto
 			display: block
+			text-align: center
 
 			.nav-link
 				// Color and size for each link
 				color: $txtS
-				text-align: center
 				line-height: 16px
 				font-size: 16px
-				border-bottom: 1px solid transparent
+				font-weight: 600
+				border-bottom: $borderThick solid transparent
 
 				// Spacing between the links
-				padding: 8px 2px 4px
-				margin: 7px 7px
+				padding: 8px 5px 8px
+				margin: 7px 11px
 				display: inline-block
 
 				// Effect
@@ -58,5 +46,5 @@ nav
 
 				// Hover effect
 				&:hover
-					border-bottom: 1px solid $txtS
+					border-bottom: $borderThick solid $txtS
 					transition: all .3s ease-in-out 0s
