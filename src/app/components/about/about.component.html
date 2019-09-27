@@ -1,13 +1,30 @@
 <!-- Container with the about page -->
 <div class="about-container">
 
-  <!-- Title about me -->
-  <h2>Something about me</h2>
-  <!-- Short parraph about me -->
-  <p class="pa-about">
-    I'm a proggramer that likes to program... Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem eos libero molestias nisi beatae ipsum adipisci, minus placeat accusantium consequuntur excepturi itaque architecto quod facilis odio necessitatibus natus ducimus iure? Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, quod magnam quis minus, iste voluptatibus quos deserunt quo id eligendi dolorem atque aspernatur. Fugiat facere quisquam sed ad quia voluptatibus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum voluptatibus, natus ab ducimus aliquid voluptate quis unde aperiam nobis quam sint odio optio in asperiores autem quas facere, ex eveniet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum animi dolore quasi blanditiis odit officia accusantium, quisquam deserunt quis aliquid quo repellat ullam accusamus reiciendis fugit obcaecati, doloribus natus minus.
-  </p>
-  <!-- Link to go to about -->
-  <a class="link" routerLink="../porfolio">See Porfolio</a>
+  <!-- About card -->
+  <div class="about">
+    <!-- Profile image -->
+    <img class="preview" src="https://weboverhauls.github.io/demos/svg/checkmark.svg" alt="profile-image-miguelbogota">
+    <!-- Title about me -->
+    <h2>Something about me</h2>
+    <!-- Short parraph about me -->
+    <p class="pa-about">
+      I'm a proggramer that likes to program... Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem eos libero molestias nisi beatae ipsum adipisci, minus placeat accusantium consequuntur excepturi itaque architecto quod facilis odio necessitatibus natus ducimus iure? Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, quod magnam quis minus, iste voluptatibus quos deserunt quo id eligendi dolorem atque aspernatur. Fugiat facere quisquam sed ad quia voluptatibus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum voluptatibus, natus ab ducimus aliquid voluptate quis unde aperiam nobis quam sint odio optio in asperiores autem quas facere, ex eveniet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum animi dolore quasi blanditiis odit officia accusantium, quisquam deserunt quis aliquid quo repellat ullam accusamus reiciendis fugit obcaecati, doloribus natus minus.
+    </p>
+    <!-- Link to go to about -->
+    <a class="link" routerLink="../contact">Let's work together</a>
+  </div>
+
+  <!-- Skill card -->
+  <div class="skills">
+    <!-- Title about me -->
+    <h2>My Skills</h2>
+
+    <!-- Skill bars -->
+    <div class="skill-list" *ngFor="let skill of skills">
+      <h3>{{ skill.name }}</h3><div class="bar {{ skill.selector }}">{{ skill.percentage }}</div>
+    </div>
+
+  </div>
   
 </div>

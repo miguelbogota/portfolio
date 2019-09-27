@@ -17,6 +17,13 @@
     font-weight: 600;
   }
 
+  p {
+    box-sizing: border-box;
+    padding: 15px 30px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
   // Card with the project
   .card {
     padding: 30px 10%;
