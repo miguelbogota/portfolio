@@ -76,11 +76,8 @@ h2 {
 
       // Each of the skills
       .bar {
-        height: 25px;
+        height: 27px;
         min-width: 250px;
-        line-height: 25px;
-        color: #d4d4d4;
-        padding: 0px 0px 0px 10px;
         position: relative;
 
         &::before {
@@ -94,13 +91,16 @@ h2 {
           background-color: #d4d4d4;
         }
 
-        &::after {
-          content: '';
+         span {
           background-color: #2b2b2b;
-          height: 25px;
+          color: #d4d4d4;
+          padding: 0px 0px 0px 10px;
+          line-height: 26px;
+          height: 24px;
           transition: 0.4s;
           display: block;
           width: 100%;
+          box-sizing: border-box;
           animation: animate 1 2s;
           position: absolute;
           top: 0;
