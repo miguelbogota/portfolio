@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
@@ -18,6 +19,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ProjectService } from './services/project.service';
+import { ProjectComponent } from './components/project/project.component';
 
 @NgModule({
 	declarations: [
@@ -28,10 +31,12 @@ import { ContactComponent } from './components/contact/contact.component';
 		HomeComponent,
 		AboutComponent,
 		PortfolioComponent,
-		ContactComponent
+		ContactComponent,
+		ProjectComponent
 	],
 	imports: [
 		BrowserModule,
+		HttpClientModule,
 		BrowserAnimationsModule,
 		AppRoutingModule,
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
@@ -40,7 +45,7 @@ import { ContactComponent } from './components/contact/contact.component';
 		AngularFireAuthModule,
 		AngularFireStorageModule
 	],
-	providers: [],
+	providers: [ProjectService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

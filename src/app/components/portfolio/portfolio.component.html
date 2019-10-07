@@ -1,1 +1,21 @@
-<p>portfolio works!</p>
+<!-- Portfolio's container -->
+<div class="portfolio-content">
+
+  <!-- Card with projects -->
+  <div class="card" *ngFor="let project of projects">
+    <!-- Link to go to the project -->
+    <a class="link-preview" [routerLink]="['/porfolio', project.id]">
+      <!-- Project's preview -->
+      <img class="preview" src="{{ project.imgUrl }}" alt="web-site preview">
+      <!-- Project's name -->
+      <h3>{{ project.title }}</h3>
+      <!-- Date -->
+      <div class="date">{{ project.date }}</div>
+      <!-- Project's short description -->
+      <p>{{ project.desc }}</p>
+      <!-- Link -->
+      <div class="text">Go to the project</div>
+    </a>
+  </div>
+
+</div>
