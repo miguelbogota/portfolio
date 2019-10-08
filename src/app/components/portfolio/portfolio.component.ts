@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/services/project.service';
+import { firestore } from 'firebase/app';
 
 @Component({
   selector: 'app-portfolio',
@@ -13,7 +14,12 @@ export class PortfolioComponent implements OnInit {
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    this.projectService.getProjects().subscribe(data => this.projects = data);
-  }
+    
+    this.projectService.getAll().subscribe(project => {
+      this.projects = project;
+    });
 
+    
+
+  }
 }

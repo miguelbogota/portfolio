@@ -1,6 +1,6 @@
 <!-- Portfolio's container -->
 <div class="portfolio-content">
-
+  
   <!-- Card with projects -->
   <div class="card" *ngFor="let project of projects">
     <!-- Link to go to the project -->
@@ -10,7 +10,7 @@
       <!-- Project's name -->
       <h3>{{ project.title }}</h3>
       <!-- Date -->
-      <div class="date">{{ project.date }}</div>
+      <div class="date">{{ project.dateStart.toDate() | date:'MMM yy' }} - {{ project.dateEnd.toDate() | date:'MMM yy' }}</div>
       <!-- Project's short description -->
       <p>{{ project.desc }}</p>
       <!-- Link -->

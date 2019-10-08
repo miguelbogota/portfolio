@@ -1,19 +1,60 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { IProject } from '../models/project';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map, publishReplay, refCount } from 'rxjs/operators';
+import { IProject } from '../models/IProject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  private url: string = "/assets/data/projects.json";
+  private colletionName: string = 'projects';
 
-  constructor(private http: HttpClient) { }
+  private projects: Observable<IProject[]>;
+  private projectCollection: AngularFirestoreCollection<IProject>;
+  private projectDoc: AngularFirestoreDocument<IProject>;
 
-  getProjects(): Observable<IProject[]> {
-    return this.http.get<IProject[]>(this.url);
+  constructor(private db: AngularFirestore) {
+    // Get the collection
+    this.projectCollection = this.db.collection<IProject>(this.colletionName);
+    // Get values
+    this.projects = this.projectCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as IProject;
+        data.id = a.payload.doc.id;
+        return data;
+      })),
+      publishReplay(1),
+      refCount()
+    )
+  }
+
+  // Function to get all the projects
+  getAll(): Observable<IProject[]> {
+    return this.projects;
+  }
+
+  // Funtion to get a project with the ID
+  get(id: string) {
+    this.projectDoc = this.db.doc(`${this.colletionName}/${id}`);
+    return this.projectDoc;
+  }
+
+  // Funtion to add a new project
+  add(project: IProject) {
+    this.projectCollection.doc(project.id).set(project);
+  }
+
+  // Funtion to update the data in a document
+  update() {
+
+  }
+
+  // Funtion to delete a document
+  delete(id: string) {
+    this.get(id);
+    this.projectDoc.delete();
   }
 
 }

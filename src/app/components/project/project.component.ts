@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProjectService } from 'src/app/services/project.service';
+import { IProject } from 'src/app/models/IProject';
 
 @Component({
   selector: 'app-project',
@@ -8,13 +10,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProjectComponent implements OnInit {
 
-  public id: number;
+  public id: string;
+  project: IProject;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private projectService: ProjectService) { }
 
   ngOnInit() {
-    let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.id = id;
+    
+
+    this.route.paramMap.subscribe(param => {
+      this.id = param.get('id');
+    });
+
+    
+    
+  }
+
+  deletep(event) {
+    this.projectService.delete(this.id);
   }
 
 }
