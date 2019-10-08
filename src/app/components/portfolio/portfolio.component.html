@@ -4,7 +4,7 @@
   <!-- Card with projects -->
   <div class="card" *ngFor="let project of projects">
     <!-- Link to go to the project -->
-    <a class="link-preview" [routerLink]="['/porfolio', project.id]">
+    <a class="link-preview" [routerLink]="['/portfolio', project.id]">
       <!-- Project's preview -->
       <img class="preview" src="{{ project.imgUrl }}" alt="web-site preview">
       <!-- Project's name -->
@@ -12,7 +12,7 @@
       <!-- Date -->
       <div class="date">{{ project.dateStart.toDate() | date:'MMM yy' }} - {{ project.dateEnd.toDate() | date:'MMM yy' }}</div>
       <!-- Project's short description -->
-      <p>{{ project.desc }}</p>
+      <p>{{ project.subtitle }}</p>
       <!-- Link -->
       <div class="text">Go to the project</div>
     </a>

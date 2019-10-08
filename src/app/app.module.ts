@@ -30,6 +30,7 @@ import { AboutComponent } from './components/about/about.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProjectComponent } from './components/project/project.component';
+import { LoadingSpinnerComponent } from './animations/loading-spinner/loading-spinner.component';
 
 @NgModule({
 	declarations: [
@@ -41,7 +42,8 @@ import { ProjectComponent } from './components/project/project.component';
 		AboutComponent,
 		PortfolioComponent,
 		ContactComponent,
-		ProjectComponent
+		ProjectComponent,
+		LoadingSpinnerComponent
 	],
 	imports: [
 		BrowserModule,

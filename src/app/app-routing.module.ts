@@ -9,8 +9,8 @@ import { ProjectComponent } from './components/project/project.component';
 const routes: Routes = [
 	{ path: '', component: HomeComponent, data: { side: 'center' } },
 	{ path: 'contact', component: ContactComponent, data: { side: 'left' } },
-	{ path: 'porfolio', component: PortfolioComponent, data: { side: 'right' } },
-	{ path: 'porfolio/:id', component: ProjectComponent },
+	{ path: 'portfolio', component: PortfolioComponent, data: { side: 'right' } },
+	{ path: 'portfolio/:id', component: ProjectComponent },
 	{ path: 'about', component: AboutComponent }
 ];
 

@@ -1,0 +1,54 @@
+// Imports
+@import '../../../styles/variables';
+	
+/*-----------------------------------------------------------*/
+/*                         Project                           */
+/*-----------------------------------------------------------*/
+
+// Project's container
+.project-container {
+  padding: 14px 0px 67px;
+  text-align: right;
+
+  // Preview
+  img {
+    width: 120%;
+    margin: 0px -10%;
+  }
+
+  // Title
+  h3 {
+    font-weight: 600;
+    margin: 24px 0px 17px;
+    font-size: 20px;
+    text-align: left;
+  }
+
+  // Date
+  .date {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  // Separator line
+  .line {
+    width: 90%;
+    height: 1px;
+    margin: 0px auto 22px;
+    display: block;
+    background-color: $txtDarkP;
+    text-align: left;
+  }
+
+  // Description
+  p {
+    text-align: center;
+  }
+
+  // Link
+  .link {
+    display: inline-block;
+    margin: 29px 11% 0px 0px;
+  }
+
+}
