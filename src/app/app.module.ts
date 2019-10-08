@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-//import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 //import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 // Keys
@@ -31,6 +31,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ProjectComponent } from './components/project/project.component';
 import { LoadingSpinnerComponent } from './animations/loading-spinner/loading-spinner.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
 	declarations: [
@@ -43,7 +44,8 @@ import { LoadingSpinnerComponent } from './animations/loading-spinner/loading-sp
 		PortfolioComponent,
 		ContactComponent,
 		ProjectComponent,
-		LoadingSpinnerComponent
+		LoadingSpinnerComponent,
+		AdminComponent
 	],
 	imports: [
 		BrowserModule,
@@ -53,7 +55,8 @@ import { LoadingSpinnerComponent } from './animations/loading-spinner/loading-sp
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 		AngularFireModule.initializeApp(environment.firebase, 'my-app-name'),
 		AngularFirestoreModule,
-		AngularFireStorageModule
+		AngularFireStorageModule,
+		AngularFireAuthModule
 	],
 	providers: [ProjectService],
 	bootstrap: [AppComponent]

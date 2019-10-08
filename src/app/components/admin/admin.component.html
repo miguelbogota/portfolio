@@ -1,0 +1,16 @@
+<div *ngIf="afAuth.user | async as user; else showLogin">
+  <div class="login" *ngIf="checkEmail; else noAccess">
+    <h1>Hello {{ user.displayName }}!</h1>
+    <button (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <button (click)="login()">Login with Google</button>
+</ng-template>
+
+<ng-template #noAccess>
+  <p>Yo don't have access to be admin. please change user.</p>
+  <button (click)="logout()">Logout</button>
+</ng-template>
