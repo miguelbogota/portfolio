@@ -1,16 +1,59 @@
-<div *ngIf="afAuth.user | async as user; else showLogin">
-  <div class="login" *ngIf="checkEmail; else noAccess">
-    <h1>Hello {{ user.displayName }}!</h1>
-    <button (click)="logout()">Logout</button>
-  </div>
+<!-- Admin's container -->
+<div class="admin-container">
+  <!-- Loading screen while it loads the data -->
+  <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+  <!-- Data once the data is loaded -->
+  <ng-template #loaded>
+    <!-- Validate if loggged in -->
+    <div *ngIf="afAuth.user | async as user; else loginMenu">
+      <!-- Validate if account is valid -->
+      <div class="logged" *ngIf="checkEmail; else noAccess">
+
+        <!-- Admin nav bar with name, photo and a logout button -->
+        <div class="nav-admin">
+          <img src="{{ user.photoURL }}" alt="profile-photo">
+          <h2>Hello {{ user.displayName | slice:0:user.displayName.indexOf(' ') }}!</h2>
+          <a class="link" (click)="logout()">Logout</a>
+        </div>
+        <!-- Ransom phrase -->
+        <p>Ready to make changes?</p>
+
+        <!-- Data with option to change -->
+        <main>
+          <!-- Option to add or remove -->
+          <div class="options">
+            <a class="btn">Add</a>
+            <a class="btn" (click)="selectOn()">Select</a>
+          </div>
+
+          <!-- Show all the projects -->
+          <div class="project" *ngFor="let project of projects">
+            <p>{{ project.title }}</p>
+            <input *ngIf="deleteOption" type="checkbox" name="delete" id="{{ project.id }}">
+          </div>
+
+          <!-- Delete items if selected -->
+          <a *ngIf="deleteOption" class="btn">Delete</a>
+
+        </main>
+
+      </div>
+    </div>
+
+    <!-- If user is not logged in -->
+    <ng-template #loginMenu class="login">
+      <div class="error">
+        <p>Please login with a valid Google account.</p>
+        <button (click)="login()">Login with Google</button>
+      </div>
+    </ng-template>
+
+    <!-- If user is logged in with an invalid account -->
+    <ng-template #noAccess class="invalid">
+      <div class="error">
+        <p>Yo don't have access to be here.</p>
+        <a (click)="logout()">Logout</a>
+      </div>
+    </ng-template>
+  </ng-template>
 </div>
-
-<ng-template #showLogin>
-  <p>Please login.</p>
-  <button (click)="login()">Login with Google</button>
-</ng-template>
-
-<ng-template #noAccess>
-  <p>Yo don't have access to be admin. please change user.</p>
-  <button (click)="logout()">Logout</button>
-</ng-template>

@@ -1,0 +1,117 @@
+// Imports
+@import '../../../styles/variables';
+
+/*-----------------------------------------------------------*/
+/*                         Admin                             */
+/*-----------------------------------------------------------*/
+
+// Admin's container
+.admin-container {
+  padding: 10px 0px 53px;
+
+  // When logged with a valid account
+  .logged {
+
+    // Nav bar for the admin panel
+    .nav-admin {
+      height: 160px;
+      border: 1px solid $txtP;
+      text-align: left;
+      display: block;
+      margin: 0px 0px 30px;
+      padding: 0px 15px 15px 6%;
+      box-sizing: border-box;
+      position: relative;
+      @include effect;
+
+      // Hover effect
+      &:hover {
+        box-shadow: 0 0px 20px 0 #0000001f, 0 10px 30px 0 #00000011;
+        transform: translate(0px, -4px);
+        @include effect;
+      }
+
+      // Account's image
+      img {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        width: 130px;
+        border-radius: 50%;
+      }
+      
+      // Title/Name
+      h2 {
+        margin: 23px 0px 30px;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      // Link to logout
+      .link {
+        display: inline-block;
+      }
+    }
+
+    // Random phrase
+    p {
+      text-align: center;
+      margin: 20px 0px;
+    }
+
+    // All projects
+    main {
+      padding-top: 10px;
+
+      // Option to add and remove
+      .options {
+        width: fit-content;
+        display: block;
+        margin: 10px auto 23px;
+
+        // Buttons
+        .btn {
+          margin: 0px 10px;
+          width: 70px;
+        }
+
+      }
+
+      // Each project
+      .project {
+        display: block;
+        border: 1px solid $txtP;
+        box-sizing: border-box;
+        width: 100%;
+        padding-left: 5%;
+        margin-bottom: 14px;
+        @include effect;
+
+        // Hover effect
+        &:hover {
+          box-shadow: 0 0px 10px 0 #0000001f, 0 10px 10px 0 #00000011;
+          transform: translate(0px, -1px);
+          @include effect;
+        }
+
+        // Text in the box
+        p {
+          text-align: left;
+          display: inline-block;
+          width: 85%;
+          line-height: 40px;
+          margin: 0px;
+        }
+
+        // OPtion to delete
+        input {
+          display: 15%;
+          display: inline-block;
+        }
+
+      }
+    }
+    
+  }
+
+}

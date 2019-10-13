@@ -54,7 +54,7 @@ import { AdminComponent } from './components/admin/admin.component';
 		AppRoutingModule,
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 		AngularFireModule.initializeApp(environment.firebase, 'my-app-name'),
-		AngularFirestoreModule,
+		AngularFirestoreModule.enablePersistence(),
 		AngularFireStorageModule,
 		AngularFireAuthModule
 	],

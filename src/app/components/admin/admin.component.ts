@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { email } from "../../../environments/key";
+import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,8 +14,11 @@ export class AdminComponent implements OnInit {
   // Personal email to access the admin section
   email: string = email; // Secret key
   checkEmail: boolean = false; // Validate if the email is the same one
+  showSpinner: boolean = true; // loading screen validation
+  projects = []; // Array to store the projects
+  deleteOption: boolean = false; // If delete option is on check button to delete enable
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth, private projectService: ProjectService) { }
 
   ngOnInit() {
 
@@ -23,10 +27,16 @@ export class AdminComponent implements OnInit {
       // Validate if there's any user logged
       if(user != null) {
         // If there's one check if it have access or not
-        if (user.email === this.email) this.checkEmail = true;
+        if (user.email === this.email) {
+          this.checkEmail = true;
+          this.projectService.getAll().subscribe(project => this.projects = project);
+        }
         else this.checkEmail = false;
       }
+      // Once everything loads stop loading animation
+      this.showSpinner = false;
     });
+
   }
 
   // Login with pop-up
@@ -34,5 +44,10 @@ export class AdminComponent implements OnInit {
 
   // Funtion to logout
   logout() { this.afAuth.auth.signOut(); }
+
+  // Select option on
+  selectOn() {
+    this.deleteOption = !this.deleteOption;
+  }
 
 }

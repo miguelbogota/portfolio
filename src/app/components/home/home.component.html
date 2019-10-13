@@ -17,27 +17,33 @@
   <div class="latest-projects">
     <!-- Arrows -->
     <div class="arrows">
-      <a class="arrow-left"><i class="fas fa-chevron-left fa-2x"></i></a>
-      <a class="arrow-right"><i class="fas fa-chevron-right fa-2x"></i></a>
+      <a class="arrow-left" (click)="changeCard('left')"><i class="fas fa-chevron-left fa-2x"></i></a>
+      <a class="arrow-right" (click)="changeCard('right')"><i class="fas fa-chevron-right fa-2x"></i></a>
     </div>
 
     <!-- Title -->
     <h2>Latest Projects</h2>
 
-    <!-- Card with projects -->
-    <div class="card">
-      <!-- Link to go to the project -->
-      <a class="link-preview">
-        <!-- Project's preview -->
-        <img class="preview" src="https://weboverhauls.github.io/demos/svg/checkmark.svg" alt="web-site preview">
-        <!-- Project's name -->
-        <h3>Title project</h3>
-        <!-- Project's short description -->
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae mollitia accusantium maiores f</p>
-        <!-- Link -->
-        <div class="text">Go to the project</div>
-      </a>
-    </div>
+    <!-- Loading screen while it loads the data -->
+    <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+    <!-- Data once the data is loaded -->
+    <ng-template #loaded>
+
+      <!-- Card with projects -->
+      <div class="card">
+        <!-- Link to go to the project -->
+        <a class="link-preview" [routerLink]="['/portfolio', show().id]">
+          <!-- Project's preview -->
+          <img class="preview" src="{{ show().imgUrl }}" alt="web-site preview">
+          <!-- Project's name -->
+          <h3>{{ show().title }}</h3>
+          <!-- Project's short description -->
+          <p>{{ show().desc }}</p>
+          <!-- Link -->
+          <div class="text">Go to the project</div>
+        </a>
+      </div>
+    </ng-template>
 
     <!-- Link to go to portfolio -->
     <a class="link" routerLink="portfolio">Go to all projects</a>
