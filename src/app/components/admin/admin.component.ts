@@ -16,7 +16,6 @@ export class AdminComponent implements OnInit {
   checkEmail: boolean = false; // Validate if the email is the same one
   showSpinner: boolean = true; // loading screen validation
   projects = []; // Array to store the projects
-  deleteOption: boolean = false; // If delete option is on check button to delete enable
 
   constructor(private afAuth: AngularFireAuth, private projectService: ProjectService) { }
 
@@ -45,9 +44,10 @@ export class AdminComponent implements OnInit {
   // Funtion to logout
   logout() { this.afAuth.auth.signOut(); }
 
-  // Select option on
-  selectOn() {
-    this.deleteOption = !this.deleteOption;
+  // Funtion to delete the project
+  deleteProject(projectID: string) {
+    const responce = confirm('Do you want to delete this project?');
+    if (responce) this.projectService.delete(projectID);
   }
 
 }

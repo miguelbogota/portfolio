@@ -28,24 +28,29 @@ header {
 			max-width: 82%;
 			text-align: center;
 
-			h1 {
-				// Set top and botton lines of the title and set some padding
-				border-top: 3px solid $txtP;
-				border-bottom: 3px solid $txtP;
-				padding: 10px 0px 10px;
+			// Container
+			.container {
 
-				// Set text size, vertical center and color
-				font-size: 28px;
-				font-weight: 600;
-				color: $txtP;
-			}
+				h1 {
+					// Set top and botton lines of the title and set some padding
+					border-top: 3px solid $txtP;
+					border-bottom: 3px solid $txtP;
+					padding: 10px 0px 10px;
 
-			p {
-				// Set padding, size and color for the description
-				padding: 16px 10px 10px;
-				font-size: 16px;
-				line-height: 18px;
-				color: $txtDarkP;
+					// Set text size, vertical center and color
+					font-size: 28px;
+					font-weight: 600;
+					color: $txtP;
+				}
+
+				p {
+					// Set padding, size and color for the description
+					padding: 16px 10px 10px;
+					font-size: 16px;
+					line-height: 18px;
+					color: $txtDarkP;
+				}
+				
 			}
 			
 		}

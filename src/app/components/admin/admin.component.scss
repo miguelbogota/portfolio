@@ -1,6 +1,11 @@
 // Imports
 @import '../../../styles/variables';
 
+// Margin and padding text within nav-bar
+$mrgSize: 22px;
+$pddSize: 11px;
+$mrgBorder: 23px;
+
 /*-----------------------------------------------------------*/
 /*                         Admin                             */
 /*-----------------------------------------------------------*/
@@ -14,12 +19,11 @@
 
     // Nav bar for the admin panel
     .nav-admin {
-      height: 160px;
       border: 1px solid $txtP;
       text-align: left;
       display: block;
       margin: 0px 0px 30px;
-      padding: 0px 15px 15px 6%;
+      padding: $pddSize $mrgBorder;
       box-sizing: border-box;
       position: relative;
       @include effect;
@@ -34,21 +38,22 @@
       // Account's image
       img {
         position: absolute;
-        right: 15px;
-        top: 15px;
-        width: 130px;
+        right: $mrgBorder;
+        top: $pddSize;
+        height: calc( 100% - #{$pddSize} * 2 );
         border-radius: 50%;
       }
       
       // Title/Name
       h2 {
-        margin: 23px 0px 30px;
+        margin: $mrgSize 0px 0px;
         font-size: 16px;
         font-weight: 600;
       }
 
       // Link to logout
       .link {
+        margin: $mrgSize 0px;
         display: inline-block;
       }
     }
@@ -63,18 +68,11 @@
     main {
       padding-top: 10px;
 
-      // Option to add and remove
-      .options {
-        width: fit-content;
+      // Buttons
+      .btn {
+        width: 70px;
         display: block;
         margin: 10px auto 23px;
-
-        // Buttons
-        .btn {
-          margin: 0px 10px;
-          width: 70px;
-        }
-
       }
 
       // Each project
@@ -82,15 +80,15 @@
         display: block;
         border: 1px solid $txtP;
         box-sizing: border-box;
+        line-height: 40px;
         width: 100%;
-        padding-left: 5%;
+        padding: 0px 5%;
         margin-bottom: 14px;
         @include effect;
 
         // Hover effect
         &:hover {
-          box-shadow: 0 0px 10px 0 #0000001f, 0 10px 10px 0 #00000011;
-          transform: translate(0px, -1px);
+          box-shadow: 0 0px 4px 0 #0000001f, 0 4px 4px 0 #00000011;
           @include effect;
         }
 
@@ -98,20 +96,77 @@
         p {
           text-align: left;
           display: inline-block;
-          width: 85%;
-          line-height: 40px;
+          width: calc( 100% - 60px );
           margin: 0px;
         }
 
-        // OPtion to delete
-        input {
-          display: 15%;
+        // Icons to delete and update
+        .icons-container {
           display: inline-block;
+          width: 60px;
+          z-index: 200;
+
+          // Each icon
+          .icon {
+            width: 50%;
+            height: 100%;
+            display: inline-block;
+            text-align: center;
+
+            // Click in the icon
+            i {
+              cursor: pointer;
+              width: 18px;
+              height: 18px;
+              color: $txtLightS;
+              @include effect;
+            }
+          }
+
+          // Hover delete button
+          .delete {
+            i {
+              &:hover {
+                color: #d40000;
+              }
+            }
+          }
+          // Hover edit button
+          .edit {
+            i {
+              &:hover {
+                color: #147399;
+              }
+            }
+          }
+          // Hover view button
+          .view {
+            i {
+              &:hover {
+                color: #149966;
+              }
+            }
+          }
+
         }
 
       }
     }
     
+  }
+
+  // Error if not logged or logged with different account
+  .error {
+    display: block;
+    border: 1px solid $txtP;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    padding: 30px $mrgBorder;
+  }
+  // Error description
+  p {
+    margin-bottom: 20px;
   }
 
 }

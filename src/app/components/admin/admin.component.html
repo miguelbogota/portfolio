@@ -23,17 +23,18 @@
           <!-- Option to add or remove -->
           <div class="options">
             <a class="btn">Add</a>
-            <a class="btn" (click)="selectOn()">Select</a>
           </div>
 
           <!-- Show all the projects -->
           <div class="project" *ngFor="let project of projects">
+            <!-- Projects' name -->
             <p>{{ project.title }}</p>
-            <input *ngIf="deleteOption" type="checkbox" name="delete" id="{{ project.id }}">
+            <!-- Update and delete options -->
+            <div class="icons-container">
+              <div class="icon edit"><i class="fas fa-edit"></i></div>
+              <div class="icon delete" (click)="deleteProject(project.id)"><i class="fas fa-trash"></i></div>
+            </div>
           </div>
-
-          <!-- Delete items if selected -->
-          <a *ngIf="deleteOption" class="btn">Delete</a>
 
         </main>
 
@@ -44,7 +45,7 @@
     <ng-template #loginMenu class="login">
       <div class="error">
         <p>Please login with a valid Google account.</p>
-        <button (click)="login()">Login with Google</button>
+        <a class="link" (click)="login()">Login with Google</a>
       </div>
     </ng-template>
 
@@ -52,7 +53,7 @@
     <ng-template #noAccess class="invalid">
       <div class="error">
         <p>Yo don't have access to be here.</p>
-        <a (click)="logout()">Logout</a>
+        <a class="link" (click)="logout()">Logout</a>
       </div>
     </ng-template>
   </ng-template>
