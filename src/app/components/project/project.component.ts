@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
 import { IProject } from 'src/app/models/IProject';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-project',
@@ -15,7 +16,11 @@ export class ProjectComponent implements OnInit {
   showSpinner: boolean = true; // loading screen validation
   heigth: number; // Header height
 
-  constructor(private projectService: ProjectService, private route: ActivatedRoute, private router: Router) { }
+  createOn: boolean = true; // Validate if the mode to create is on
+  editOn: boolean; // Validate if the mode edit is on
+  viewOn: boolean; // Validate if the mode view is on
+
+  constructor(private projectService: ProjectService, private auth: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     
@@ -34,6 +39,15 @@ export class ProjectComponent implements OnInit {
       if (data.payload.exists) {
         this.project = data.payload.data();
         this.project.id = data.payload.id;
+
+        // Check mode
+        this.auth.userData.subscribe(user => {
+          // If logged with the right email load the projects
+          if (this.auth.isLogged) {
+            console.log("yes");
+          }
+        });
+
       }
       // If is not send back to the portfolio
       else {
@@ -44,10 +58,4 @@ export class ProjectComponent implements OnInit {
     });
     
   }
-
-  // Funtion to delete the project | Just for testing
-  deletep(event) {
-    this.projectService.delete(this.id);
-  }
-
 }

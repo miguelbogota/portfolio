@@ -1,42 +1,49 @@
 <!-- Admin's container -->
 <div class="admin-container">
   <!-- Loading screen while it loads the data -->
-  <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+  <app-loading-spinner *ngIf="showSpinnerUser; else loaded"></app-loading-spinner>
   <!-- Data once the data is loaded -->
   <ng-template #loaded>
     <!-- Validate if loggged in -->
-    <div *ngIf="afAuth.user | async as user; else loginMenu">
+    <div *ngIf="auth.userData | async as user; else loginMenu">
       <!-- Validate if account is valid -->
-      <div class="logged" *ngIf="checkEmail; else noAccess">
+      <div class="logged" *ngIf="check; else noAccess">
 
         <!-- Admin nav bar with name, photo and a logout button -->
         <div class="nav-admin">
           <img src="{{ user.photoURL }}" alt="profile-photo">
           <h2>Hello {{ user.displayName | slice:0:user.displayName.indexOf(' ') }}!</h2>
-          <a class="link" (click)="logout()">Logout</a>
+          <a class="link" (click)="auth.SignOut()">Logout</a>
         </div>
         <!-- Ransom phrase -->
         <p>Ready to make changes?</p>
 
-        <!-- Data with option to change -->
-        <main>
-          <!-- Option to add or remove -->
-          <div class="options">
-            <a class="btn">Add</a>
-          </div>
+        <!-- Loading screen while it loads the projects -->
+        <app-loading-spinner *ngIf="showSpinnerProjects; else loadedProjects"></app-loading-spinner>
+        <!-- Data once the projects are loaded -->
+        <ng-template #loadedProjects>
 
-          <!-- Show all the projects -->
-          <div class="project" *ngFor="let project of projects">
-            <!-- Projects' name -->
-            <p>{{ project.title }}</p>
-            <!-- Update and delete options -->
-            <div class="icons-container">
-              <div class="icon edit"><i class="fas fa-edit"></i></div>
-              <div class="icon delete" (click)="deleteProject(project.id)"><i class="fas fa-trash"></i></div>
+          <!-- Data with option to change -->
+          <main>
+            <!-- Option to add or remove -->
+            <div class="options">
+              <a class="btn">Add</a>
             </div>
-          </div>
 
-        </main>
+            <!-- Show all the projects -->
+            <div class="project" *ngFor="let project of projects">
+              <!-- Projects' name -->
+              <p>{{ project.title }}</p>
+              <!-- Update and delete options -->
+              <div class="icons-container">
+                <div class="icon edit"><i class="fas fa-edit"></i></div>
+                <div class="icon delete" (click)="deleteProject(project.id)"><i class="fas fa-trash"></i></div>
+              </div>
+            </div>
+
+          </main>
+
+          </ng-template>
 
       </div>
     </div>
@@ -45,7 +52,7 @@
     <ng-template #loginMenu class="login">
       <div class="error">
         <p>Please login with a valid Google account.</p>
-        <a class="link" (click)="login()">Login with Google</a>
+        <a class="link" (click)="auth.SignIn()">Login with Google</a>
       </div>
     </ng-template>
 
@@ -53,7 +60,7 @@
     <ng-template #noAccess class="invalid">
       <div class="error">
         <p>Yo don't have access to be here.</p>
-        <a class="link" (click)="logout()">Logout</a>
+        <a class="link" (click)="auth.SignOut()">Logout</a>
       </div>
     </ng-template>
   </ng-template>

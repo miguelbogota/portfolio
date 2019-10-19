@@ -5,18 +5,41 @@
   <!-- Data once the data is loaded -->
   <ng-template #loaded>
 
-    <!-- Preview -->
-    <img src="{{ project.imgUrl }}" alt="website-preview">
-    <!-- Title -->
-    <h3>{{ project.title }}</h3>
-    <!-- Dates worked -->
-    <div class="date">{{ project.dateStart.toDate() | date:'MMM yy' }} - {{ project.dateEnd.toDate() | date:'MMM yy' }}</div>
-    <!-- Separator line -->
-    <div class="line"></div>
-    <!-- Description -->
-    <p>{{ project.desc }}</p>
-    <!-- Link to visit the website -->
-    <a href="{{ project.link }}" target="_blank" class="link">Visit website</a>
+    <!-- Create mode -->
+    <div class="create" *ngIf="createOn">
+
+      <img src="{{ project.imgUrl }}" alt="website-preview">
+      <input type="text" name="title" id="title" placeholder="Project's name...">
+      from: <input type="date" name="date" id="date">
+      to: <input type="date" name="date" id="date">
+      <!-- Separator line -->
+      <div class="line"></div>
+      <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Project's description..."></textarea>
+      <input type="text" name="title" id="title" placeholder="Project's external link...">
+      <button class="btn">Finish</button>
+
+    </div>
+
+    <!-- Edit mode -->
+    <div class="edit" *ngIf="editOn">
+
+    </div>
+
+    <!-- View mode -->
+    <div class="preview" *ngIf="viewOn">
+      <!-- Preview -->
+      <img src="{{ project.imgUrl }}" alt="website-preview">
+      <!-- Title -->
+      <h3>{{ project.title }}</h3>
+      <!-- Dates worked -->
+      <div class="date">{{ project.dateStart.toDate() | date:'MMM yy' }} - {{ project.dateEnd.toDate() | date:'MMM yy' }}</div>
+      <!-- Separator line -->
+      <div class="line"></div>
+      <!-- Description -->
+      <p>{{ project.desc }}</p>
+      <!-- Link to visit the website -->
+      <a href="{{ project.link }}" target="_blank" class="link">Visit website</a>
+    </div>
 
   </ng-template>
 
