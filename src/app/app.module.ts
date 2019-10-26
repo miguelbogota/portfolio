@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 // firebase
 import { AngularFireModule } from '@angular/fire';
@@ -52,6 +53,7 @@ import { AdminComponent } from './components/admin/admin.component';
 		HttpClientModule,
 		BrowserAnimationsModule,
 		AppRoutingModule,
+		FormsModule,
 		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 		AngularFireModule.initializeApp(environment.firebase, 'my-app-name'),
 		AngularFirestoreModule.enablePersistence(),
