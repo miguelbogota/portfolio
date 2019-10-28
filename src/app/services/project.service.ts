@@ -30,6 +30,11 @@ export class ProjectService {
     )
   }
 
+  // To generate a great ID for each project
+  generateID(): string {
+    return Math.floor(Math.random() * 100000000).toString();
+  }
+
   // Function to get all the projects
   getAll(): Observable<IProject[]> {
     return this.projects;

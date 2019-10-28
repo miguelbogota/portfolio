@@ -1,0 +1,74 @@
+<!-- Project container -->
+<div class="project-container">
+  <!-- Loading screen while it loads the data -->
+  <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+  <!-- Data once the data is loaded -->
+  <ng-template #loaded>
+
+    <!-- Create mode -->
+    <div class="create">
+      <form novalidate>
+
+        <!-- Image preview and upload -->
+        <div class="img-container">
+          <img class="image" [src]="imgSrc" alt="website-preview">
+          <!-- Text and icon to upload the image -->
+          <div class="text" (click)="fileUploader.click()">
+            <i class="fas fa-camera"></i>
+            <p>Upload image</p>
+          </div>
+          <input type="file" #fileUploader (change)="showPreview($event)" [style.display]="'none'">
+        </div>
+        <!-- Projects' ID -->
+        <h3>ID: {{ newID }}</h3>
+        <!-- Title/Projet's name -->
+        <input class="title" type="text" name="title" autocomplete="off" placeholder="Project's name..." [(ngModel)]="project.title">
+        <!-- Project's date -->
+        <div class="date">
+
+          <!-- Date picker for from -->
+          <button class="btn" (click)="toggleDate('from')">from:</button>
+          <button class="btn" (click)="toggleDate('to')">To:</button>
+          <div class="date-picker" *ngIf="dateFrom">
+            <h4>Choose date the project started</h4>
+            <!-- Day -->
+            <select name="day" name="dayFrom" [(ngModel)]="dateFromTime.day">
+              <option *ngFor="let d of days" value="{{ d.id }}">{{ d.id }}</option>
+            </select>
+            <!-- Month -->
+            <select name="month" name="monthFrom" [(ngModel)]="dateFromTime.month">
+              <option *ngFor="let m of months" value="{{ m.id }}">{{ m.name }}</option>
+            </select>
+            <!-- Year -->
+            <input name="year" type="text" placeholder="Year" name="yearFrom" [(ngModel)]="dateFromTime.year">
+            <a class="btn" (click)="finishDate('from')">Finish</a>
+          </div>
+          <div class="date-picker" *ngIf="dateTo">
+            <h4>Choose date the project ended</h4>
+            <!-- Day -->
+            <select name="day" name="dayTo" [(ngModel)]="dateToTime.day">
+              <option *ngFor="let d of days" value="{{ d.id }}">{{ d.id }}</option>
+            </select>
+            <!-- Month -->
+            <select name="month" name="monthTo" [(ngModel)]="dateToTime.month">
+              <option *ngFor="let m of months" value="{{ m.id }}">{{ m.name }}</option>
+            </select>
+            <!-- Year -->
+            <input name="year" type="text" placeholder="Year" name="yearTo" [(ngModel)]="dateToTime.year">
+            <a class="btn" (click)="finishDate('to')">Finish</a>
+          </div>
+        </div>
+        <!-- Separator line -->
+        <div class="line"></div>
+        <!-- Description -->
+        <textarea name="desc" placeholder="Project's description..." [(ngModel)]="project.desc"></textarea>
+        <!-- Link to visit the website -->
+        <input type="text" class="enter-link" autocomplete="off" name="title" placeholder="Project's external link..." [(ngModel)]="project.link">
+        <!-- Submit button -->
+        <button class="btn submit" type="submit" (click)="OnSubmit()">Add this project</button>
+      </form>
+    </div>
+
+  </ng-template>
+
+</div>

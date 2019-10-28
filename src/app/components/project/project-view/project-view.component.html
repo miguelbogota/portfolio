@@ -1,0 +1,28 @@
+<!-- Project container -->
+<div class="project-container">
+  <!-- Loading screen while it loads the data -->
+  <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+  <!-- Data once the data is loaded -->
+  <ng-template #loaded>
+
+    <!-- View mode -->
+    <div class="preview">
+      <!-- Preview -->
+      <div class="img-container">
+        <img [src]="project.imgUrl" alt="website-preview">
+      </div>
+      <!-- Title -->
+      <h3>{{ project.title }}</h3>
+      <!-- Dates worked -->
+      <div class="date">{{ project.dateStart.toDate() | date:'MMM yy' }} -
+        {{ project.dateEnd.toDate() | date:'MMM yy' }}</div>
+      <!-- Separator line -->
+      <div class="line"></div>
+      <!-- Description -->
+      <p>{{ project.desc }}</p>
+      <!-- Link to visit the website -->
+      <a href="{{ project.link }}" target="_blank" class="link">Visit website</a>
+    </div>
+
+  </ng-template>
+</div>

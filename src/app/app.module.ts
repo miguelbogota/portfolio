@@ -30,9 +30,11 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { ProjectComponent } from './components/project/project.component';
 import { LoadingSpinnerComponent } from './animations/loading-spinner/loading-spinner.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ProjectViewComponent } from './components/project/project-view/project-view.component';
+import { ProjectEditComponent } from './components/project/project-edit/project-edit.component';
+import { ProjectNewComponent } from './components/project/project-new/project-new.component';
 
 @NgModule({
 	declarations: [
@@ -44,9 +46,11 @@ import { AdminComponent } from './components/admin/admin.component';
 		AboutComponent,
 		PortfolioComponent,
 		ContactComponent,
-		ProjectComponent,
 		LoadingSpinnerComponent,
-		AdminComponent
+		AdminComponent,
+		ProjectViewComponent,
+		ProjectEditComponent,
+		ProjectNewComponent
 	],
 	imports: [
 		BrowserModule,
