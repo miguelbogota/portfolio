@@ -30,19 +30,8 @@
     <ng-template #loaded>
 
       <!-- Card with projects -->
-      <div class="card">
-        <!-- Link to go to the project -->
-        <a class="link-preview" [routerLink]="['/portfolio', show().id]">
-          <!-- Project's preview -->
-          <img class="preview" src="{{ show().imgUrl }}" alt="web-site preview">
-          <!-- Project's name -->
-          <h3>{{ show().title }}</h3>
-          <!-- Project's short description -->
-          <p>{{ show().desc }}</p>
-          <!-- Link -->
-          <div class="text">Go to the project</div>
-        </a>
-      </div>
+      <app-project-card [Data]="show()"></app-project-card>
+
     </ng-template>
 
     <!-- Link to go to portfolio -->

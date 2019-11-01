@@ -13,15 +13,13 @@ export class ProjectViewComponent implements OnInit {
   id: string; // Get ID to query
   project: IProject; // Project to show
   showSpinner: boolean = true; // loading screen validation
-  heigth: number; // Header height
 
   constructor(private projectService: ProjectService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
 
     // Get size of header and scroll to bottom of it
-    this.heigth = document.getElementsByClassName('banner').item(0).clientHeight;
-    window.scrollTo(0, this.heigth);
+    window.scrollTo(0, document.getElementsByClassName('banner').item(0).clientHeight);
 
     // Get ID from the URL
     this.route.paramMap.subscribe(param => {

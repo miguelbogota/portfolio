@@ -23,14 +23,14 @@ function slideTo(direction) {
       })
     ], optional),
     query(':enter', [
-      style({ [direction]: '-120%'})
+      style({ [direction]: '-120%', opacity: 0 })
     ]),
     group([
       query(':leave', [
-        animate('600ms ease', style({ [direction]: '120%'}))
+        animate('600ms ease', style({ [direction]: '120%', opacity: 0 }))
       ], optional),
       query(':enter', [
-        animate('600ms ease', style({ [direction]: '0%'}))
+        animate('600ms ease', style({ [direction]: '0%', opacity: 1 }))
       ])
     ]),
     query(':leave', animateChild()),

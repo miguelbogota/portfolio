@@ -29,12 +29,12 @@ export class HomeComponent implements OnInit {
   // Funtion to change the order of the data
   changeCard(direction: string) {
     if (direction === "right") {
-      if (this.option == 0) this.option = 1;
-      else if (this.option == 1) this.option = 2;
+      if (this.option == 0) (this.lastThreeProjects.length > 1) ? this.option = 1 : this.option = 0;
+      else if (this.option == 1) (this.lastThreeProjects.length > 2) ? this.option = 2 : this.option = 0;
       else if (this.option == 2) this.option = 0;
     }
     else if (direction === "left") {
-      if (this.option == 0) this.option = 2;
+      if (this.option == 0) (this.lastThreeProjects.length > 2) ? this.option = 2 : (this.lastThreeProjects.length > 1) ? this.option = 1 : this.option = 0;
       else if (this.option == 1) this.option = 0;
       else if (this.option == 2) this.option = 1;
     }

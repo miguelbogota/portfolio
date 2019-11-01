@@ -53,6 +53,9 @@ export class ProjectNewComponent implements OnInit {
   constructor(private projectService: ProjectService, private auth: AuthService, private storage: AngularFireStorage, private router: Router) { }
 
   ngOnInit() {
+    
+    // Get size of header and scroll to bottom of it
+    window.scrollTo(0, document.getElementsByClassName('banner').item(0).clientHeight - 100);
 
     // Check access to the page
     this.auth.userData.subscribe(user => {
@@ -124,6 +127,12 @@ export class ProjectNewComponent implements OnInit {
 
   // Submit to add new project
   OnSubmit() {
+
+
+    // Get size of header and scroll to bottom of it
+    window.scrollTo(0, document.getElementsByClassName('banner').item(0).clientHeight - 100);
+    // Load spinner
+    this.showSpinner = true;
 
     // Path to upload the picture
     let imgPath = `images/${this.newID}`;

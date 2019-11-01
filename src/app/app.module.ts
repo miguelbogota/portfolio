@@ -35,6 +35,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ProjectViewComponent } from './components/project/project-view/project-view.component';
 import { ProjectEditComponent } from './components/project/project-edit/project-edit.component';
 import { ProjectNewComponent } from './components/project/project-new/project-new.component';
+import { ProjectCardComponent } from './components/project/project-card/project-card.component';
 
 @NgModule({
 	declarations: [
@@ -50,7 +51,8 @@ import { ProjectNewComponent } from './components/project/project-new/project-ne
 		AdminComponent,
 		ProjectViewComponent,
 		ProjectEditComponent,
-		ProjectNewComponent
+		ProjectNewComponent,
+		ProjectCardComponent
 	],
 	imports: [
 		BrowserModule,

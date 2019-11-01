@@ -1,21 +1,7 @@
 <!-- Portfolio's container -->
 <div class="portfolio-content">
-  
-  <!-- Card with projects -->
-  <div class="card" *ngFor="let project of projects">
-    <!-- Link to go to the project -->
-    <a class="link-preview" [routerLink]="['/portfolio', project.id]">
-      <!-- Project's preview -->
-      <img class="preview" src="{{ project.imgUrl }}" alt="web-site preview">
-      <!-- Project's name -->
-      <h3>{{ project.title }}</h3>
-      <!-- Date -->
-      <div class="date">{{ project.dateStart.toDate() | date:'MMM yy' }} - {{ project.dateEnd.toDate() | date:'MMM yy' }}</div>
-      <!-- Project's short description -->
-      <p>{{ project.subtitle }}</p>
-      <!-- Link -->
-      <div class="text">Go to the project</div>
-    </a>
-  </div>
+
+  <!-- Loop through all of the projects passing the data -->
+  <app-project-card *ngFor="let project of projects" [Data]="project"></app-project-card>
 
 </div>

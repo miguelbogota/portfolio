@@ -1,0 +1,18 @@
+<!-- Card with projects -->
+<div class="card">
+  <!-- Link to go to the project -->
+  <a class="link-preview" [routerLink]="['/portfolio', Data.id]">
+    <!-- Project's preview -->
+    <div class="img-container">
+      <img class="preview" src="{{ Data.imgUrl }}" alt="web-site preview">
+    </div>
+    <!-- Project's name -->
+    <h3>{{ Data.title }}</h3>
+    <!-- Date -->
+    <div class="date">{{ Data.dateStart.toDate() | date:'MMM yy' }} - {{ Data.dateEnd.toDate() | date:'MMM yy' }}</div>
+    <!-- Project's short description -->
+    <p>{{ Data.desc | slice:0:40 }}...</p>
+    <!-- Link -->
+    <div class="text">Go to the project</div>
+  </a>
+</div>
