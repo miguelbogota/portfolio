@@ -128,7 +128,6 @@ export class ProjectNewComponent implements OnInit {
   // Submit to add new project
   OnSubmit() {
 
-
     // Get size of header and scroll to bottom of it
     window.scrollTo(0, document.getElementsByClassName('banner').item(0).clientHeight - 100);
     // Load spinner

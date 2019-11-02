@@ -15,8 +15,8 @@
           <h2>Hello {{ user.displayName | slice:0:user.displayName.indexOf(' ') }}!</h2>
           <a class="link" (click)="auth.SignOut()">Logout</a>
         </div>
-        <!-- Ransom phrase -->
-        <p>Ready to make changes?</p>
+        <!-- Random phrase -->
+        <h5>Ready to make changes?</h5>
 
         <!-- Loading screen while it loads the projects -->
         <app-loading-spinner *ngIf="showSpinnerProjects; else loadedProjects"></app-loading-spinner>
@@ -38,6 +38,22 @@
               <div class="icons-container">
                 <div class="icon edit"><i class="fas fa-edit"></i></div>
                 <div class="icon delete" (click)="deleteProject(project.id)"><i class="fas fa-trash"></i></div>
+              </div>
+            </div>
+
+            <!-- Messages title -->
+            <h5 style="margin-top: 47px;">You have a few messages</h5>
+            <!-- Show all the messages -->
+            <div class="message" *ngFor="let message of messages">
+              <!-- Messages's name -->
+              <p>{{ message.name }}</p>
+              <!-- Email -->
+              <p>{{ message.email }}</p>
+              <!-- message -->
+              <p>{{ message.message }}</p>
+              <!-- Update and delete options -->
+              <div class="icons-container">
+                <div class="icon delete" (click)="deleteMessage(message.id)"><i class="fas fa-trash"></i></div>
               </div>
             </div>
 

@@ -5,7 +5,7 @@ Personal portfolio using Angular 7 connected to firebase as a database. It works
 
 ## Built With
 
-* [Angular 7](https://angular.io/) - The web framework used
+* [Angular 8](https://angular.io/) - The web framework used
 * [Firebase](https://firebase.google.com/) - The database used
 
 ## Authors

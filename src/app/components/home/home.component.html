@@ -35,7 +35,7 @@
     </ng-template>
 
     <!-- Link to go to portfolio -->
-    <a class="link" routerLink="portfolio">Go to all projects</a>
+    <a class="link" [routerLink]="['/portfolio']" (click)="goUp()">Go to all projects</a>
 
   </div>
 

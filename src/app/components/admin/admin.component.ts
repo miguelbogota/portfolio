@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/services/project.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { IUser } from 'src/app/models/IUser';
+import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
   selector: 'app-admin',
@@ -15,8 +16,9 @@ export class AdminComponent implements OnInit {
   showSpinnerUser: boolean = true; // loading screen validation
   showSpinnerProjects: boolean = true; // Loading screen for projects
   projects = []; // Array to store the projects
+  messages = []; // Array to store the messages
 
-  constructor(private projectService: ProjectService, private auth: AuthService) { }
+  constructor(private projectService: ProjectService, private messageService: MessagesService, private auth: AuthService) { }
 
   ngOnInit() {
 
@@ -29,6 +31,9 @@ export class AdminComponent implements OnInit {
         });
         this.user = user; // Store the user
         this.check = true; // Email is check and is the correct one
+        this.messageService.getAll().subscribe(message => {
+          this.messages = message; // Store all of the messages
+        });
       }
       else { this.check = false /* Email is not the correc one */ }
       // Once everything loads stop loading animation
@@ -41,6 +46,12 @@ export class AdminComponent implements OnInit {
   deleteProject(projectID: string) {
     const responce = confirm('Do you want to delete this project?');
     if (responce) this.projectService.delete(projectID);
+  }
+
+  // Funtion to delete the message
+  deleteMessage(messageID: string) {
+    const responce = confirm('Do you want to delete this message?');
+    if (responce) this.messageService.delete(messageID);
   }
 
 }

@@ -10,14 +10,14 @@ import { ProjectViewComponent } from './components/project/project-view/project-
 import { ProjectEditComponent } from './components/project/project-edit/project-edit.component';
 
 const routes: Routes = [
-	{ path: '', component: HomeComponent, data: { side: 'center' } },
-	{ path: 'contact', component: ContactComponent, data: { side: 'left' } },
-	{ path: 'portfolio', component: PortfolioComponent, data: { side: 'right' } },
-	{ path: 'portfolio/:id', component: ProjectViewComponent },
-	{ path: 'portfolio/:id/edit', component: ProjectEditComponent },
-	{ path: 'admin', component: AdminComponent },
-	{ path: 'about', component: AboutComponent },
-	{ path: 'new', component: ProjectNewComponent }
+	{ path: '', component: HomeComponent, data: { side: 'main' } },
+	{ path: 'contact', component: ContactComponent, data: { side: 'contact' } },
+	{ path: 'portfolio', component: PortfolioComponent, data: { side: 'portfolio' } },
+	{ path: 'portfolio/:id', component: ProjectViewComponent, data: { side: 'project' } },
+	{ path: 'portfolio/:id/edit', component: ProjectEditComponent, data: { side: 'edit' } },
+	{ path: 'admin', component: AdminComponent, data: { side: 'admin' } },
+	{ path: 'about', component: AboutComponent, data: { side: 'about' } },
+	{ path: 'new', component: ProjectNewComponent, data: { side: 'new' } }
 ];
 
 @NgModule({
