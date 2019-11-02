@@ -101,11 +101,11 @@ h2 {
           display: block;
           width: 100%;
           box-sizing: border-box;
-          animation: animate 1 2s;
           position: absolute;
           top: 0;
           left: 0;
           z-index: -1;
+          transition: max-width 2s cubic-bezier(0.39, 0.575, 0.565, 1);
         }
 
       }

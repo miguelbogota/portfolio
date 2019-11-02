@@ -12,7 +12,7 @@
       I'm a proggramer that likes to program... Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem eos libero molestias nisi beatae ipsum adipisci, minus placeat accusantium consequuntur excepturi itaque architecto quod facilis odio necessitatibus natus ducimus iure? Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, quod magnam quis minus, iste voluptatibus quos deserunt quo id eligendi dolorem atque aspernatur. Fugiat facere quisquam sed ad quia voluptatibus! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum voluptatibus, natus ab ducimus aliquid voluptate quis unde aperiam nobis quam sint odio optio in asperiores autem quas facere, ex eveniet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum animi dolore quasi blanditiis odit officia accusantium, quisquam deserunt quis aliquid quo repellat ullam accusamus reiciendis fugit obcaecati, doloribus natus minus.
     </p>
     <!-- Link to go to about -->
-    <a class="link" routerLink="../contact">Let's work together</a>
+    <a class="link" [routerLink]="['/contact']" (click)="goUp()">Let's work together</a>
   </div>
 
   <!-- Skill card -->
@@ -22,7 +22,7 @@
 
     <!-- Skill bars -->
     <div class="skill-list" *ngFor="let skill of skills">
-      <h3>{{ skill.name }}</h3><div class="bar"><span [ngStyle]="{ 'max-width': skill.percentage }">{{ skill.percentage }}</span></div>
+      <h3>{{ skill.name }}</h3><div class="bar"><span [ngStyle]="{ 'max-width': initAnimation ? skill.percentage : '0px', 'padding': initAnimation ? '0px 0px 0px 10px' : '0px' }">{{ skill.percentage }}</span></div>
     </div>
 
   </div>
