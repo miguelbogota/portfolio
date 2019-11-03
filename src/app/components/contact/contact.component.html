@@ -4,7 +4,7 @@
   <h2>Trabajemos juntos</h2>
 
   <!-- Short information text -->
-  <p>Leave your information and I'll contact you back as soon as posible!</p>
+  <p>¡Dejame tu información y te contactare lo mas pronto posible!</p>
 
   <!-- Card with contact form -->
   <div class="card">
@@ -12,9 +12,9 @@
     <!-- Inputs for each information needed -->
     <input type="text" name="name" id="name" placeholder="Nombre" [(ngModel)]="contact.name">
     <input type="email" name="email" id="email" placeholder="Email" [(ngModel)]="contact.email">
-    <textarea name="message" id="message" cols="30" rows="10" placeholder="Escribeme tu projecto..." [(ngModel)]="contact.message"></textarea>
+    <textarea name="message" id="message" cols="30" rows="10" placeholder="Escribeme que necesitas..." [(ngModel)]="contact.message"></textarea>
     <!-- Submit button -->
-    <button (click)="submit()">Submit</button>
+    <button (click)="submit()">Enviar información</button>
 
   </div>
 </div>

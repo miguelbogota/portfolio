@@ -13,7 +13,11 @@ header {
 		// Calculate to show navbar always
 		width: 100%;
 		height: calc(100vh - 120px);
-		background-color: $bgP; // Change for an image with some effect
+		background-image: url('https://firebasestorage.googleapis.com/v0/b/miguelporfolio.appspot.com/o/cover9.jpg?alt=media&token=a369a162-2f8d-4acb-9159-f011250c57a6');
+		background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
 
 		// Center all in the banner vertically
 		display: flex;
@@ -30,25 +34,27 @@ header {
 
 			// Container
 			.container {
-
-				h1 {
-					// Set top and botton lines of the title and set some padding
-					border-top: 3px solid $txtP;
-					border-bottom: 3px solid $txtP;
-					padding: 10px 0px 10px;
-
-					// Set text size, vertical center and color
-					font-size: 28px;
-					font-weight: 600;
-					color: $txtP;
-				}
+				padding: 0px;
 
 				p {
+					// Set top and botton lines of the title and set some padding
+					border-top: 3px solid $txtLightP;
+					border-bottom: 3px solid $txtLightP;
+					padding: 10px 16px 10px;
+					text-shadow: 1px 1px 5px #111111;
+					// Set text size, vertical center and color
+					font-size: 40px;
+					font-weight: 600;
+					color: $txtLightP;
+				}
+
+				h1 {
 					// Set padding, size and color for the description
 					padding: 16px 10px 10px;
-					font-size: 16px;
+					font-size: 18px;
 					line-height: 18px;
-					color: $txtDarkP;
+					color: $txtLightP;
+					text-shadow: 1px 1px 5px #111111;
 				}
 				
 			}

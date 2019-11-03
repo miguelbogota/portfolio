@@ -4,38 +4,41 @@
   <!-- Short info about me -->
   <div class="short-about">
     <!-- Title about me -->
-    <h2>Something about me</h2>
+    <h2>Acerca de mí</h2>
     <!-- Short parraph about me -->
     <p class="pa-about">
-      I'm a proggramer that likes to program... Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro aperiam libero ea voluptatum voluptatem ipsam, reprehenderit a dolorem totam, sapiente molestiae inventore debitis quas, minima neque autem. Reprehenderit, excepturi dolorum?
+      Mi nombre es Miguel, Tengo 23 años, soy de Bogotá, Colombia y soy desarrollador de software Full Stack con experiencia en Front-End y Back-End. Actualmente estoy cursando un Tecnico en Desarrollo de Software.
+      Si necesitas ayuda con tu proyecto enviame un correo en la página de contacto. Estare a la espera de tu información.
     </p>
     <!-- Link to go to about -->
-    <a class="link" [routerLink]="['/about']">See full about me</a>
+    <a class="link" [routerLink]="['/about']">Más de mí</a>
   </div>
 
-  <!-- Resume with my latest projects -->
-  <div class="latest-projects">
-    <!-- Arrows -->
-    <div class="arrows">
-      <a class="arrow-left" (click)="changeCard('left')"><i class="fas fa-chevron-left fa-2x"></i></a>
-      <a class="arrow-right" (click)="changeCard('right')"><i class="fas fa-chevron-right fa-2x"></i></a>
+  <div *ngIf="allProjects.length > 0">
+    <!-- Resume with my latest projects -->
+    <div class="latest-projects">
+      <!-- Arrows -->
+      <div class="arrows">
+        <a class="arrow-left" (click)="changeCard('left')"><i class="fas fa-chevron-left fa-2x"></i></a>
+        <a class="arrow-right" (click)="changeCard('right')"><i class="fas fa-chevron-right fa-2x"></i></a>
+      </div>
+
+      <!-- Title -->
+      <h2>Ultimos proyectos</h2>
+
+      <!-- Loading screen while it loads the data -->
+      <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+      <!-- Data once the data is loaded -->
+      <ng-template #loaded>
+
+        <!-- Card with projects -->
+        <app-project-card [Data]="show()"></app-project-card>
+
+      </ng-template>
+
+      <!-- Link to go to portfolio -->
+      <a class="link" [routerLink]="['/portfolio']" (click)="goUp()">Ver todos los proyectos</a>
     </div>
-
-    <!-- Title -->
-    <h2>Latest Projects</h2>
-
-    <!-- Loading screen while it loads the data -->
-    <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
-    <!-- Data once the data is loaded -->
-    <ng-template #loaded>
-
-      <!-- Card with projects -->
-      <app-project-card [Data]="show()"></app-project-card>
-
-    </ng-template>
-
-    <!-- Link to go to portfolio -->
-    <a class="link" [routerLink]="['/portfolio']" (click)="goUp()">Go to all projects</a>
 
   </div>
 

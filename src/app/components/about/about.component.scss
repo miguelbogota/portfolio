@@ -30,12 +30,13 @@ h2 {
 
     // Profile image of me
     img {
-      width: 100%;
+      width: 200px;
       height: 200px;
       padding: 15px;
-      margin-bottom: 25px;
+      margin: 0px auto 25px;
       display: block;
       box-sizing: border-box;
+      border-radius: 50%;
     }
 
     // Short info about myself

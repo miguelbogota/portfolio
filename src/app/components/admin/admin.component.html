@@ -12,11 +12,11 @@
         <!-- Admin nav bar with name, photo and a logout button -->
         <div class="nav-admin">
           <img src="{{ user.photoURL }}" alt="profile-photo">
-          <h2>Hello {{ user.displayName | slice:0:user.displayName.indexOf(' ') }}!</h2>
-          <a class="link" (click)="auth.SignOut()">Logout</a>
+          <h2>¡Hola {{ user.displayName | slice:0:user.displayName.indexOf(' ') }}!</h2>
+          <a class="link" (click)="auth.SignOut()">Cerrar sesión</a>
         </div>
         <!-- Random phrase -->
-        <h5>Ready to make changes?</h5>
+        <h5>¿Listo para hacer cambios?</h5>
 
         <!-- Loading screen while it loads the projects -->
         <app-loading-spinner *ngIf="showSpinnerProjects; else loadedProjects"></app-loading-spinner>
@@ -27,7 +27,7 @@
           <main>
             <!-- Option to add or remove -->
             <div class="options">
-              <a class="btn" [routerLink]="['/new']">Add</a>
+              <a class="btn" [routerLink]="['/new']">Nuevo poryecto</a>
             </div>
 
             <!-- Show all the projects -->
@@ -41,19 +41,21 @@
               </div>
             </div>
 
-            <!-- Messages title -->
-            <h5 style="margin-top: 47px;">You have a few messages</h5>
-            <!-- Show all the messages -->
-            <div class="message" *ngFor="let message of messages">
-              <!-- Messages's name -->
-              <p>{{ message.name }}</p>
-              <!-- Email -->
-              <p>{{ message.email }}</p>
-              <!-- message -->
-              <p>{{ message.message }}</p>
-              <!-- Update and delete options -->
-              <div class="icons-container">
-                <div class="icon delete" (click)="deleteMessage(message.id)"><i class="fas fa-trash"></i></div>
+            <div *ngIf="messages.length > 0">
+              <!-- Messages title -->
+              <h5 style="margin-top: 47px;">¡Tienes mensajes nuevos!</h5>
+              <!-- Show all the messages -->
+              <div class="message" *ngFor="let message of messages">
+                <!-- Messages's name -->
+                <p>{{ message.name }}</p>
+                <!-- Email -->
+                <p>{{ message.email }}</p>
+                <!-- message -->
+                <p>{{ message.message }}</p>
+                <!-- Update and delete options -->
+                <div class="icons-container">
+                  <div class="icon delete" (click)="deleteMessage(message.id)"><i class="fas fa-trash"></i></div>
+                </div>
               </div>
             </div>
 
@@ -67,16 +69,16 @@
     <!-- If user is not logged in -->
     <ng-template #loginMenu class="login">
       <div class="error">
-        <p>Please login with a valid Google account.</p>
-        <a class="link" (click)="auth.SignIn()">Login with Google</a>
+        <p>Por favor iniciar sesión con una cuenta de Google valida.</p>
+        <a class="link" (click)="auth.SignIn()">Iniciar sesión con Google</a>
       </div>
     </ng-template>
 
     <!-- If user is logged in with an invalid account -->
     <ng-template #noAccess class="invalid">
       <div class="error">
-        <p>Yo don't have access to be here.</p>
-        <a class="link" (click)="auth.SignOut()">Logout</a>
+        <p>No tienes permisos para estar aqui.</p>
+        <a class="link" (click)="auth.SignOut()">Cerrar sesión</a>
       </div>
     </ng-template>
   </ng-template>
