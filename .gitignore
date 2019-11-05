@@ -47,3 +47,4 @@ Thumbs.db
 
 # Security
 src/environments/key.ts
+public
