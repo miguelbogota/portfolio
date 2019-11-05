@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/services/project.service';
 import { IProject } from 'src/app/models/IProject';
+import { DataService } from 'src/app/services/data.service';
+import { IData } from 'src/app/models/IData';
 
 @Component({
   selector: 'app-home',
@@ -16,16 +18,28 @@ export class HomeComponent implements OnInit {
   option: number = 0; // Option to show in the cards
   cardDireccion: string = ''; // Card to the left
 
-  constructor(private projectService: ProjectService) { }
+  data: IData; // Storage about component data
+  universal: IData; // Storage universal data
+
+  constructor(private projectService: ProjectService, private dataService: DataService) { }
 
   ngOnInit() {
-    this.projectService.getAll().subscribe(project => {
-      this.allProjects = project; // Save all project
-      // Validate if array has more than 3 projetcs, and get the las 3
-      if (this.allProjects.length > 3) { this.lastThreeProjects = this.allProjects.slice(-3); }
-      else { this.lastThreeProjects = this.allProjects; }
-      // Once everything loads stop loading animation
-      this.showSpinner = false;
+
+    this.dataService.get('universal').valueChanges().subscribe(universal => {
+      this.universal = universal; // Save date
+      // Get the data to show in about
+      this.dataService.get('about').valueChanges().subscribe(data => {
+        this.data = data; // Save date
+        // Get the projects
+        this.projectService.getAll().subscribe(project => {
+          this.allProjects = project; // Save all project
+          // Validate if array has more than 3 projetcs, and get the las 3
+          if (this.allProjects.length > 3) { this.lastThreeProjects = this.allProjects.slice(-3); }
+          else { this.lastThreeProjects = this.allProjects; }
+          // Once everything loads stop loading animation
+          this.showSpinner = false;
+        });
+      });
     });
   }
 

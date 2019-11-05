@@ -48,7 +48,9 @@ export class ProjectService {
 
   // Funtion to add a new project
   add(project: IProject) {
-    this.projectCollection.doc(project.id).set(project);
+    let id = project.id; // Save ID
+    delete project.id; // Delete id since I rather not to save it
+    this.projectCollection.doc(id).set(project);
   }
 
   // Funtion to update the data in a document

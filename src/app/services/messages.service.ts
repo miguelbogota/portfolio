@@ -30,25 +30,27 @@ export class MessagesService {
     )
   }
 
-  // To generate a great ID for each project
+  // To generate a great ID for each message
   generateID(): string {
     return Math.floor(Math.random() * 100000000).toString();
   }
 
-  // Function to get all the projects
+  // Function to get all the messages
   getAll(): Observable<IMessage[]> {
     return this.messages;
   }
 
-  // Funtion to get a project with the ID
+  // Funtion to get a message with the ID
   get(id: string) {
     this.messageDoc = this.db.doc(`${this.colletionName}/${id}`);
     return this.messageDoc;
   }
 
-  // Funtion to add a new project
-  add(project: IMessage) {
-    this.messageCollection.doc(project.id).set(project);
+  // Funtion to add a new message
+  add(message: IMessage) {
+    let id = message.id; // Save ID
+    delete message.id; // Delete id since I rather not to save it
+    this.messageCollection.doc(id).set(message);
   }
 
   // Funtion to update the data in a document
