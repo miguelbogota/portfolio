@@ -19,18 +19,18 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 // Services
-import { ProjectService } from './services/project.service';
+import { ProjectService } from './core/services/project.service';
 
 // Components
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { NavComponent } from './components/nav/nav.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { NavComponent } from './components/shared/nav/nav.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { LoadingSpinnerComponent } from './animations/loading-spinner/loading-spinner.component';
+import { LoadingSpinnerComponent } from './core/animations/loading-spinner/loading-spinner.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ProjectViewComponent } from './components/project/project-view/project-view.component';
 import { ProjectEditComponent } from './components/project/project-edit/project-edit.component';

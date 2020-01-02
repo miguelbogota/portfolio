@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
-import { IData } from 'src/app/models/IData';
+import { DataService } from 'src/app/core/services/data.service';
+import { IData } from 'src/app/core/models/IData';
 
 @Component({
   selector: 'app-about',

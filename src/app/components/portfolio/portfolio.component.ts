@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from 'src/app/services/project.service';
+import { ProjectService } from 'src/app/core/services/project.service';
 import { firestore } from 'firebase/app';
 
 @Component({

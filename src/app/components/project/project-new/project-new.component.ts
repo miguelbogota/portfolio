@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
-import { ProjectService } from 'src/app/services/project.service';
-import { IProject } from 'src/app/models/IProject';
+import { ProjectService } from 'src/app/core/services/project.service';
+import { IProject } from 'src/app/core/models/IProject';
 import { firestore } from 'firebase/app';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators'
@@ -14,7 +14,7 @@ import { finalize } from 'rxjs/operators'
 })
 export class ProjectNewComponent implements OnInit {
 
-  newID: string = this.projectService.generateID();; // New generated ID
+  newID: string = this.projectService.generateID(); // New generated ID
 
   dateFromTime = { year: "", month: "1", day: "1" }; // Data binding for From date
   dateToTime = { year: "", month: "1", day: "1" }; // Data binding for To date

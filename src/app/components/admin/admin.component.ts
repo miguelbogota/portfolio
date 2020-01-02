@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from 'src/app/services/project.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { IUser } from 'src/app/models/IUser';
-import { MessagesService } from 'src/app/services/messages.service';
+import { ProjectService } from 'src/app/core/services/project.service';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { IUser } from 'src/app/core/models/IUser';
+import { MessagesService } from 'src/app/core/services/messages.service';
 
 @Component({
   selector: 'app-admin',

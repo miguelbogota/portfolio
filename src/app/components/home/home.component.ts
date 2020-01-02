@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from 'src/app/services/project.service';
-import { IProject } from 'src/app/models/IProject';
-import { DataService } from 'src/app/services/data.service';
-import { IData } from 'src/app/models/IData';
+import { ProjectService } from 'src/app/core/services/project.service';
+import { IProject } from 'src/app/core/models/IProject';
+import { DataService } from 'src/app/core/services/data.service';
+import { IData } from 'src/app/core/models/IData';
 
 @Component({
   selector: 'app-home',
