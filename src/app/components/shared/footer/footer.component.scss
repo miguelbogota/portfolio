@@ -1,88 +1,95 @@
 // Imports
-@import '../../../../styles/variables';
-	
+@import "../../../../styles/variables";
+
 /*-----------------------------------------------------------*/
 /*                          Footer                           */
 /*-----------------------------------------------------------*/
 
 footer {
-	// Full width
-	width: 100%;
+  // Full width
+  width: 100%;
 
-	.foot {
-		height: 100vh; // Change this later for something better
+  .foot {
+    height: 100vh; // Change this later for something better
 		background-color: $bgP;
+		position: relative;
 
-		// Center all in the banner vertically
-		display: flex;
-		justify-content: center;
-		align-items: center;
+    // Center all in the banner vertically
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-		// Diagonal cut at the bottom
-		clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+    // Diagonal cut at the bottom
+    clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
 
-		.contact {
-			// Set width and set te text in the center
-			width: 230px;
-			text-align: center;
-			
-			// Button work together
-			.btn-work-together {
-				// Set background button look
-				width: 100%;
-				padding: 15px 0px;
-				border: 1px solid $txtDarkP;
-				border-radius: 2px;
-				display: block;
-				box-sizing: border-box;
+    .contact {
+      // Set width and set te text in the center
+      width: 230px;
+      text-align: center;
 
-				// Size and color
-				font-size: 18px;
-				color: $txtDarkP;
+      // Button work together
+      .btn-work-together {
+        // Set background button look
+        width: 100%;
+        padding: 15px 0px;
+        border: 1px solid $txtDarkP;
+        border-radius: 2px;
+        display: block;
+        box-sizing: border-box;
 
-				// Effect
-				cursor: pointer;
-				transition: all .2s linear 0s;
+        // Size and color
+        font-size: 18px;
+        color: $txtDarkP;
 
-				// Hover effect
-				&:hover {
-					background: $bgDarkP;
-					color: $txtP;
-					transition: all .2s linear 0s;
-				}
+        // Effect
+        cursor: pointer;
+        transition: all 0.2s linear 0s;
 
-			}
+        // Hover effect
+        &:hover {
+          background: $bgDarkP;
+          color: $txtP;
+          transition: all 0.2s linear 0s;
+        }
+      }
 
-			// Social links
-			.social {
-				// Separate from button
-				margin-top: 80px;
+      // Social links
+      .social {
+        // Separate from button
+        margin-top: 80px;
 
-				// Social networks' title
-				h4 {
-					color: $txtLightS;
-				}
+        // Social networks' title
+        h4 {
+          color: $txtLightS;
+        }
 
-				// Social networks' links
-				.social-link {
-					display: inline-block;
-					margin: 36px 5px 10px;
+        // Social networks' links
+        .social-link {
+          display: inline-block;
+          margin: 36px 5px 10px;
 
-					// Color for the icons
-					i {
-						color: $txtDarkP;
-						transition: all .2s linear 0s;
+          // Color for the icons
+          i {
+            color: $txtDarkP;
+            transition: all 0.2s linear 0s;
 
-						&:hover {
-							color: $txtP;
-							transition: all .2s linear 0s;
-						}
-					}
-					
-				}
-			}
+            &:hover {
+              color: $txtP;
+              transition: all 0.2s linear 0s;
+            }
+          }
+        }
+      }
+    }
 
-		}
-	}
-
+    // Button to the admin page
+    .link-to-admin {
+      width: 100%;
+      height: 20px;
+      display: block;
+			position: absolute;
+			bottom: 0;
+			cursor: default;
+    }
+  }
 }

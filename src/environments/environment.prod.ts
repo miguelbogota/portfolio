@@ -3,13 +3,5 @@ import { key } from "./key";
 
 export const environment = {
 	production: true,
-	firebase: {
-		apiKey: key.apiKey,
-		authDomain: key.authDomain,
-		databaseURL: key.databaseURL,
-		projectId: key.projectId,
-		storageBucket: key.storageBucket,
-		messagingSenderId: key.messagingSenderId,
-		appId: key.appId
-	}
+	firebase: key
 };

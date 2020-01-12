@@ -1,13 +1,13 @@
 {
   "database": {
-    "rules": "database.rules.json"
+    "rules": "firerules/database.rules.json"
   },
   "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
+    "rules": "firerules/firestore.rules",
+    "indexes": "firerules/firestore.indexes.json"
   },
   "hosting": {
-    "public": "public",
+    "public": "dist/portfolio",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -21,6 +21,6 @@
     ]
   },
   "storage": {
-    "rules": "storage.rules"
+    "rules": "firerules/storage.rules"
   }
 }

@@ -22,6 +22,9 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
 
+    // Get size of header and scroll to bottom of it
+    window.scrollTo(0, document.getElementsByClassName('banner').item(0).clientHeight);
+
     this.auth.userData.subscribe(user => {
       // If logged with the right email load the projects
       if (this.auth.isLogged) {
