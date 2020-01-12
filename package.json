@@ -1,6 +1,8 @@
 {
-	"name": "portfolio",
-	"version": "0.0.0",
+	"name": "@miguelbogota/portfolio",
+	"version": "1.0.0",
+	"author": "",
+  "license": "WTF",
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
@@ -9,7 +11,12 @@
 		"lint": "ng lint",
 		"e2e": "ng e2e"
 	},
-	"private": true,
+	"repository": {
+    "url": "git://github.com/miguelbogota/portfolio.git"
+	},
+	"publishConfig": {
+    "registry":"https://npm.pkg.github.com/"
+  },
 	"dependencies": {
 		"@angular/animations": "^8.2.14",
 		"@angular/common": "^8.2.14",
