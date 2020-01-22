@@ -3,11 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 // Keys are hidden for security reasons, add yours in here
-import { key } from "./key";
+import { key } from './key';
 
 export const environment = {
-	production: false,
-	firebase: key
+  production: false,
+  firebase: key
 };
 
 /*

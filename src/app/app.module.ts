@@ -13,7 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-//import { AngularFireFunctionsModule } from '@angular/fire/functions';
+// import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 // Keys
 import { environment } from '../environments/environment';
@@ -38,35 +38,35 @@ import { ProjectNewComponent } from './components/project/project-new/project-ne
 import { ProjectCardComponent } from './components/project/project-card/project-card.component';
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		HeaderComponent,
-		NavComponent,
-		FooterComponent,
-		HomeComponent,
-		AboutComponent,
-		PortfolioComponent,
-		ContactComponent,
-		LoadingSpinnerComponent,
-		AdminComponent,
-		ProjectViewComponent,
-		ProjectEditComponent,
-		ProjectNewComponent,
-		ProjectCardComponent
-	],
-	imports: [
-		BrowserModule,
-		HttpClientModule,
-		BrowserAnimationsModule,
-		AppRoutingModule,
-		FormsModule,
-		ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-		AngularFireModule.initializeApp(environment.firebase, 'my-app-name'),
-		AngularFirestoreModule.enablePersistence(),
-		AngularFireStorageModule,
-		AngularFireAuthModule
-	],
-	providers: [ProjectService],
-	bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    NavComponent,
+    FooterComponent,
+    HomeComponent,
+    AboutComponent,
+    PortfolioComponent,
+    ContactComponent,
+    LoadingSpinnerComponent,
+    AdminComponent,
+    ProjectViewComponent,
+    ProjectEditComponent,
+    ProjectNewComponent,
+    ProjectCardComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireModule.initializeApp(environment.firebase, 'my-app-name'),
+    AngularFirestoreModule.enablePersistence(),
+    AngularFireStorageModule,
+    AngularFireAuthModule
+  ],
+  providers: [ProjectService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
