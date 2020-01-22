@@ -56,8 +56,8 @@ import { ProjectCardComponent } from './components/project/project-card/project-
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
