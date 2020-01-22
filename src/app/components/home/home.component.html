@@ -1,44 +1,50 @@
-<!-- Container with the home page -->
-<div class="home-container">
-
+<div class="row mx-0 mb-5 mt-3">
   <!-- Loading screen while it loads the data -->
-  <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+  <div class="col" *ngIf="showSpinner; else loaded">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
   <!-- Data once the data is loaded -->
   <ng-template #loaded>
 
-    <!-- Short info about me -->
-    <div class="short-about">
+    <!-- Short about me -->
+    <div class="col-md-6 mb-5 px-4 d-flex flex-column justify-content-center">
       <!-- Title about me -->
-      <h2>{{ universal.information1 }}</h2>
+      <h3>{{ universal.information1 }}</h3>
       <!-- Short parraph about me -->
-      <p class="pa-about">
+      <p>
         {{ data.information2 | slice:0:131 }}...
       </p>
       <!-- Link to go to about -->
-      <a class="link" [routerLink]="['/about']">{{ universal.information1 }}</a>
+      <a [routerLink]="['/about']">{{ universal.information1 }}</a>
     </div>
 
-    <div *ngIf="allProjects.length > 0">
-      <!-- Resume with my latest projects -->
-      <div class="latest-projects">
-        <!-- Arrows -->
-        <div class="arrows">
-          <a class="arrow-left" (click)="changeCard('left')"><i class="fas fa-chevron-left fa-2x"></i></a>
-          <a class="arrow-right" (click)="changeCard('right')"><i class="fas fa-chevron-right fa-2x"></i></a>
-        </div>
+    <!-- Short about me -->
+    <div class="col-md-6" *ngIf="allProjects.length > 0">
 
-        <!-- Title -->
-        <h2>{{ data.information11 }}</h2>
+      <!-- Latest projects -->
+      <div class="mx-1">
+        <!-- Card head -->
+        <div class="row m-0 mb-3">
+          <!-- Left arrow -->
+          <div class="col-3 text-right p-0 pt-1">
+            <a class="effect d-inline-block" (click)="changeCard('left')"><i class="fas fa-chevron-left fa-2x"></i></a>
+          </div>
+          <!-- Title -->
+          <h5 class="col-6 text-center mt-sm-3 mt-2 m-0">{{ data.information11 }}</h5>
+          <!-- Right arrow -->
+          <div class="col-3 text-left p-0 pt-1">
+            <a class="effect d-inline-block" (click)="changeCard('right')"><i class="fas fa-chevron-right fa-2x"></i></a>
+          </div>
+        </div>
 
         <!-- Card with projects -->
         <app-project-card [Data]="show()"></app-project-card>
 
         <!-- Link to go to portfolio -->
-        <a class="link" [routerLink]="['/portfolio']" (click)="goUp()">{{ universal.information4 }}</a>
+        <a [routerLink]="['/portfolio']" (click)="goUp()">{{ universal.information4 }}</a>
       </div>
 
     </div>
-  
-  </ng-template>
 
+  </ng-template>
 </div>

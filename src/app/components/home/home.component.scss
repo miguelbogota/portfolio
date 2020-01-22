@@ -1,94 +1,13 @@
-// Imports
-@import '../../../styles/variables';
-	
-// Margin between each component
-$marginBottom: 92px;
-
 /*-----------------------------------------------------------*/
 /*                          Home                             */
 /*-----------------------------------------------------------*/
 
-// Home conatiner
-.home-container {
-  margin: 23px 0px 0px;
+// Arrows effect
+.effect {
+  padding: 9px 15px 6px;
+  border-radius: 50%;
 
-  // Short info about me
-  .short-about {
-    text-align: right;
-    margin: 0px 0px $marginBottom;
-
-    // Title
-    h2 {
-      font-size: 18px;
-      margin-bottom: 13px;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    // Short info about myself
-    .pa-about {
-      text-align: center;
-    }
-
-    // Link to go to about
-    .link {
-      display: inline-block;
-      margin: 20px 11% 0px 0px;
-    }
+  &:active {
+    background-color: #94cde49f;
   }
-
-  // -------------------------------------- //
-
-  // Latest projects
-  .latest-projects {
-    text-align: right;
-    margin: 0px 0px $marginBottom;
-    
-    // Arrows
-    .arrows {
-      text-align: center;
-      height: 0px;
-      position: relative;
-      cursor: pointer;
-
-      // Arrows effect
-      a {
-        position: relative;
-        bottom: 17px;
-        padding: 9px 15px;
-        border-radius: 50%;
-
-        &:active {
-          background-color: #94cde49f;
-        }
-      }
-
-      // Arrows position
-      .arrow-left {
-        display: inline-block;
-        left: -33%;
-      }
-
-      .arrow-right {
-        display: inline-block;
-        right: -33%;
-      }
-
-    }
-
-    // Title
-    h2 {
-      text-align: center;
-      font-size: 18px;
-      margin-bottom: 23px;
-      font-weight: 600;
-    }
-    
-    // Link to go to porfolio
-    .link {
-      display: inline-block;
-      margin: 20px 11% 0px 0px;
-    }
-  }
-
 }
