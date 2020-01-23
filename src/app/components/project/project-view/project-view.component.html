@@ -1,28 +1,26 @@
-<!-- Project container -->
-<div class="project-container">
-  <!-- Loading screen while it loads the data -->
-  <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
-  <!-- Data once the data is loaded -->
-  <ng-template #loaded>
+<!-- Loading screen while it loads the data -->
+<app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+<!-- Data once the data is loaded -->
+<ng-template #loaded>
+  <!-- Project container -->
+  <div class="row m-md-0 pb-5">
 
-    <!-- View mode -->
-    <div class="preview">
-      <!-- Preview -->
-      <div class="img-container">
-        <img [src]="project.imgUrl" alt="website-preview">
+    <!-- Project data  -->
+    <div class="col-md-5 pt-md-5 d-flex flex-column justify-content-center">
+      <div class="px-4 pb-4 pt-md-5 mt-md-5">
+        <h4 class="mb-0">{{ project.title }}</h4>
+        <hr class="my-2" />
+        <p class="mb-3">{{ project.desc }}</p>
+        <div class="text-muted">
+          {{ project.dateStart.toDate() | date:'MMM yy' }} - {{ project.dateEnd.toDate() | date:'MMM yy' }}
+        </div>
       </div>
-      <!-- Title -->
-      <h3>{{ project.title }}</h3>
-      <!-- Dates worked -->
-      <div class="date">{{ project.dateStart.toDate() | date:'MMM yy' }} -
-        {{ project.dateEnd.toDate() | date:'MMM yy' }}</div>
-      <!-- Separator line -->
-      <div class="line"></div>
-      <!-- Description -->
-      <p>{{ project.desc }}</p>
-      <!-- Link to visit the website -->
-      <a href="{{ project.link }}" target="_blank" class="link">Visitar página</a>
     </div>
 
-  </ng-template>
-</div>
+    <!-- Image for the project -->
+    <div class="col-md-7 banner text-center d-flex flex-column justify-content-end" [style.background-image]="'url(' + project.imgUrl + ')'">
+      <h2 class="pb-4 text-light h1">{{ project.title }}</h2>
+    </div>
+
+  </div>
+</ng-template>
