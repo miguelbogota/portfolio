@@ -31,6 +31,14 @@
       true,
       140
     ],
+    "one-line": [
+      false,
+      "check-catch",
+      "check-finally",
+      "check-else",
+      "check-open-brace",
+      "check-whitespace"
+    ],
     "member-access": false,
     "member-ordering": [
       true,
