@@ -1,0 +1,27 @@
+/*-----------------------------------------------------------*/
+/*                        Cropper                            */
+/*-----------------------------------------------------------*/
+
+.img-container {
+  // Conatiner for the text
+  .text {
+    background-color: #bbbbbbe5;
+    position: absolute;
+    display: block;
+    left: 14px;
+    bottom: 14px;
+    padding: 8px 13px;
+    border-radius: 2%;
+    cursor: pointer;
+    // Icon
+    i {
+      display: inline-block;
+      margin-right: 9px;
+    }
+    // Text "Upload"
+    p {
+      display: inline-block;
+      margin-bottom: 0px;
+    }
+  }
+}
