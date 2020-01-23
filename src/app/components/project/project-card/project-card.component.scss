@@ -1,75 +1,14 @@
-// Imports
-@import '../../../../styles/variables';
-	
 /*-----------------------------------------------------------*/
 /*                     Project-Card                          */
 /*-----------------------------------------------------------*/
 
 // Card with the project
 .card {
-  border: 1px solid $txtP;
-  text-align: center;
-  display: block;
-  margin: 0px 0px 30px;
-  @include effect;
+  transition: all .14s linear;
 
   // Hover effect
   &:hover {
     box-shadow: 0 0px 20px 0 #0000001f, 0 10px 30px 0 #00000011;
     transform: translate(0px, -4px);
-    @include effect;
-  }
-  
-  // Link
-  .link-preview {
-    cursor: pointer;
-    display: block;
-    width: 100%;
-    
-    // Image's container
-    .img-container {
-      display: block;
-      position: relative;
-      width: 100%;
-      height: 32vh;
-      margin: 0px 0px;
-      box-sizing: border-box;
-      overflow: hidden;
-
-      // Image preview
-      .preview {
-        width: 100%;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translateY(-50%) translateX(-50%);
-      }
-    }
-
-    // Project's name
-    h3 {
-      font-size: 16px;
-      margin: 10px 0px;
-      font-weight: 600;
-    }
-
-    .date {
-      font-size: 14px;
-      color: $txtLightS;
-      margin: 23px 0px 10px;
-    }
-      
-    // Short description
-    p {
-      padding: 0px 20px 20px;
-    }
-
-    // Link to see the project
-    .text {
-      color: #147399;
-      font-weight: 600;
-      padding-bottom: 24px;
-    }
-
   }
 }

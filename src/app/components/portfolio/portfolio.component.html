@@ -1,7 +1,10 @@
 <!-- Portfolio's container -->
-<div class="portfolio-content">
+<div class="mb-5">
 
-  <!-- Loop through all of the projects passing the data -->
-  <app-project-card *ngFor="let project of projects" [Data]="project"></app-project-card>
+  <!-- Cards container -->
+  <div class="card-columns">
+    <!-- Loop through all of the projects passing the data -->
+    <app-project-card *ngFor="let project of projects" [Data]="project"></app-project-card>
+  </div>
 
 </div>
