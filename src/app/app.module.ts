@@ -37,6 +37,7 @@ import { ProjectEditComponent } from './components/project/project-edit/project-
 import { ProjectNewComponent } from './components/project/project-new/project-new.component';
 import { ProjectCardComponent } from './components/project/project-card/project-card.component';
 import { CropperComponent } from './components/shared/cropper/cropper.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { CropperComponent } from './components/shared/cropper/cropper.component'
     AngularFireModule.initializeApp(environment.firebase, 'my-app-name'),
     AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ImageCropperModule
   ],
   providers: [ProjectService],
   bootstrap: [AppComponent]

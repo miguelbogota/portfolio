@@ -9,7 +9,7 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
 export class CropperComponent implements OnInit {
 
   @Output() media = new EventEmitter<File>(); // Send image to the parent component
-  imgSrc: string = 'https://firebasestorage.googleapis.com/v0/b/loveusito.appspot.com/o/images%2Fresources%2Fdefault.png?alt=media&token=0fd7b5c8-ff0e-4e80-a484-03bf5442f038'; // Image to load preview
+  imgSrc: string = 'https://firebasestorage.googleapis.com/v0/b/miguelporfolio.appspot.com/o/images%2Fresources%2Fdefault.png?alt=media&token=46797e10-1db2-4da4-9766-ce082dc3823e'; // Image to load preview
   imgSelected: boolean = false; // Check if the image was already selected
   imageUploadEvent: any; // Event for the image uploaded
   imageCroppedEvent: ImageCroppedEvent;
@@ -39,7 +39,7 @@ export class CropperComponent implements OnInit {
   // Function to remove the photo
   removeImage() {
     // Resets by defaults the values
-    this.imgSrc = 'https://firebasestorage.googleapis.com/v0/b/loveusito.appspot.com/o/images%2Fresources%2Fdefault.png?alt=media&token=0fd7b5c8-ff0e-4e80-a484-03bf5442f038';
+    this.imgSrc = 'https://firebasestorage.googleapis.com/v0/b/miguelporfolio.appspot.com/o/images%2Fresources%2Fdefault.png?alt=media&token=46797e10-1db2-4da4-9766-ce082dc3823e';
     this.imgSelected = false;
     this.imageUploadEvent = null;
     this.croppedImage = '';

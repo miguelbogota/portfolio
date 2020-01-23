@@ -1,5 +1,5 @@
 <!-- Card with projects -->
-<div class="card">
+<div class="card mt-3">
   <!-- Project's preview -->
   <img class="card-img-top" [src]="Data.imgUrl" alt="Card image cap">
   <!-- Card's body -->
@@ -8,7 +8,7 @@
     <h5 class="card-title mb-1">{{ Data.title }}</h5>
     <p class="card-text mb-1">  
       <!-- Project's short description -->
-      {{ Data.desc | slice:0:63 }}...
+      {{ Data.subtitle }}
     </p>
     <!-- Link to go to the project -->
     <a class="card-link" [routerLink]="['/portfolio', Data.id]">Ver proyecto</a>
