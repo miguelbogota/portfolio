@@ -1,67 +1,19 @@
-// Imports
-@import '../../../styles/variables';
-	
 /*-----------------------------------------------------------*/
 /*                         Contact                           */
 /*-----------------------------------------------------------*/
 
-// Contact container
-.contact-container {
-  margin: 23px 0px 92px;
+// Form
+.hover-effect {
+  transition: transform .14s linear;
 
-  // Title
-  h2 {
-    text-align: center;
-    font-size: 18px;
-    margin-bottom: 23px;
-    font-weight: 600;
+  // Hover effect
+  &:hover {
+    box-shadow: 0 0px 20px 0 #0000001f, 0 10px 30px 0 #00000011;
+    transform: translate(0px, -4px);
   }
 
-  p {
-    box-sizing: border-box;
-    padding: 15px 30px;
-    margin-bottom: 20px;
-    text-align: center;
+  // Text area resize
+  textarea {
+    resize: none;
   }
-
-  // Card with the project
-  .card {
-    padding: 30px 10%;
-    border: 1px solid $txtP;
-    text-align: center;
-    display: block;
-    @include effect;
-
-    // Hover effect
-    &:hover {
-      box-shadow: 0 0px 20px 0 #0000001f, 0 10px 30px 0 #00000011;
-      transform: translate(0px, -4px);
-      @include effect;
-    }
-
-    // Inputs
-    input, textarea {
-      box-sizing: border-box;
-      resize: none;
-      padding: 7px;
-      font-size: 16px;
-      border: 1px solid $txtP;
-      width: 100%;
-      margin: 10px 0px;
-    }
-
-    // Submit button
-    button {
-      box-sizing: border-box;
-      color: #ffffff;
-      padding: 7px;
-      font-size: 16px;
-      border: 1px solid $txtP;
-      width: 100%;
-      margin: 10px 0px;
-      background-color: #77c98d;
-      font-weight: 600;
-    }
-  }
-  
 }
