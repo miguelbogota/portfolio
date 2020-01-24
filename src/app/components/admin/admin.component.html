@@ -1,85 +1,57 @@
-<!-- Admin's container -->
-<div class="admin-container">
-  <!-- Loading screen while it loads the data -->
-  <app-loading-spinner *ngIf="showSpinnerUser; else loaded"></app-loading-spinner>
-  <!-- Data once the data is loaded -->
-  <ng-template #loaded>
-    <!-- Validate if loggged in -->
-    <div *ngIf="auth.userData | async as user; else loginMenu">
-      <!-- Validate if account is valid -->
-      <div class="logged" *ngIf="check; else noAccess">
+<!-- Project container -->
+<div *ngIf="auth.userData | async as user; else login" class="m-0">
+  <div class="row m-md-0 pb-5">
 
-        <!-- Admin nav bar with name, photo and a logout button -->
-        <div class="nav-admin">
-          <img src="{{ user.photoURL }}" alt="profile-photo">
-          <h2>¡Hola {{ user.displayName | slice:0:user.displayName.indexOf(' ') }}!</h2>
-          <a class="link" (click)="auth.SignOut()">Cerrar sesión</a>
+    <!-- Project data  -->
+    <div class="col-md-5 d-flex flex-column mb-3">
+      <div class="bg-white p-2 rounded border effect-admin">
+        <img class="float-left rounded-circle mx-3" style="width: 80px;" [src]="user.photoURL" alt="profile-photo">
+        <div class="float-left mx-3 my-2">
+          <p class="mb-2">{{ user.displayName }}</p>
+          <button class="btn btn-danger text-light btn-sm" (click)="auth.SignOut()">Cerrar sesión</button>
         </div>
-        <!-- Random phrase -->
-        <h5>¿Listo para hacer cambios?</h5>
+      </div>
+      <p class="text-muted text-center mt-3">¿Listo para hacer cambios?</p>
+      <a class="btn btn-primary w-50 mx-auto" [routerLink]="['/new']">Nuevo poryecto</a>
+    </div>
+      
+    <!-- Image for the projects and messages -->
+    <div class="col-md-7">
+      <!-- Projects -->
+      <div class="p-2" *ngIf="projects.length > 0">
+        <!-- Title --> 
+        <h5 class="mb-3 text-center">Proyectos</h5>
+        <!-- Projects For -->
+        <div class="bg-white rounded border p-2 mb-2 effect-admin" *ngFor="let project of projects">
+          <p class="m-0 d-inline-block">{{ project.title }}</p>
+          <div class="d-inline-block float-right lin lin-tra mx-3" (click)="deleteProject(project.id)"><i class="fas fa-trash"></i></div>
+          <div class="d-inline-block float-right lin lin-edi"><i class="fas fa-edit"></i></div>
+        </div>
+      </div>
 
-        <!-- Loading screen while it loads the projects -->
-        <app-loading-spinner *ngIf="showSpinnerProjects; else loadedProjects"></app-loading-spinner>
-        <!-- Data once the projects are loaded -->
-        <ng-template #loadedProjects>
-
-          <!-- Data with option to change -->
-          <main>
-            <!-- Option to add or remove -->
-            <div class="options">
-              <a class="btn" [routerLink]="['/new']">Nuevo poryecto</a>
-            </div>
-
-            <!-- Show all the projects -->
-            <div class="project" *ngFor="let project of projects">
-              <!-- Projects' name -->
-              <p>{{ project.title }}</p>
-              <!-- Update and delete options -->
-              <div class="icons-container">
-                <div class="icon edit"><i class="fas fa-edit"></i></div>
-                <div class="icon delete" (click)="deleteProject(project.id)"><i class="fas fa-trash"></i></div>
-              </div>
-            </div>
-
-            <div *ngIf="messages.length > 0">
-              <!-- Messages title -->
-              <h5 style="margin-top: 47px;">¡Tienes mensajes nuevos!</h5>
-              <!-- Show all the messages -->
-              <div class="message" *ngFor="let message of messages">
-                <!-- Messages's name -->
-                <p>{{ message.name }}</p>
-                <!-- Email -->
-                <p>{{ message.email }}</p>
-                <!-- message -->
-                <p>{{ message.message }}</p>
-                <!-- Update and delete options -->
-                <div class="icons-container">
-                  <div class="icon delete" (click)="deleteMessage(message.id)"><i class="fas fa-trash"></i></div>
-                </div>
-              </div>
-            </div>
-
-          </main>
-
-          </ng-template>
-
+      <!-- Messages -->
+      <div class="p-2 mb-3" *ngIf="messages.length > 0">
+        <!-- Title --> 
+        <h5 class="mb-3 text-center">Mensajes</h5>
+        <!-- Messages For -->
+        <div class="bg-white rounded border p-2 mb-2 effect-admin" *ngFor="let message of messages">
+          <p class="m-0 d-inline-block">Nombre: {{ message.name }}</p>
+          <div class="d-inline-block float-right lin lin-tra mx-3" (click)="deleteMessage(message.id)"><i class="fas fa-trash"></i></div>
+          <div class="d-inline-block float-right lin lin-edi"><i class="fas fa-edit"></i></div>
+          <p class="d-block mb-1">Email: <span class="text-primary">{{ message.email }}</span></p>
+          <hr class="my-1" />
+          <p class="d-block m-0">Mensaje: {{ message.message }}</p>
+        </div>
       </div>
     </div>
 
-    <!-- If user is not logged in -->
-    <ng-template #loginMenu class="login">
-      <div class="error">
-        <p>Por favor iniciar sesión con una cuenta de Google valida.</p>
-        <a class="link" (click)="auth.SignIn()">Iniciar sesión con Google</a>
-      </div>
-    </ng-template>
 
-    <!-- If user is logged in with an invalid account -->
-    <ng-template #noAccess class="invalid">
-      <div class="error">
-        <p>No tienes permisos para estar aqui.</p>
-        <a class="link" (click)="auth.SignOut()">Cerrar sesión</a>
-      </div>
-    </ng-template>
-  </ng-template>
+  </div>
 </div>
+<!-- If user is not logged in -->
+<ng-template #login>
+  <div class="text-center mb-5">
+    <p>Por favor iniciar sesión con una cuenta de Google valida.</p>
+    <button class="btn btn-outline-primary" (click)="auth.SignIn()">Iniciar sesión con Google</button>
+  </div>
+</ng-template>

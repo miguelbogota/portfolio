@@ -12,9 +12,4 @@ import { Component, OnInit } from '@angular/core';
   ngOnInit() {
   }
 
-  // Function to go back to the top
-  goUp() {
-    window.scrollTo(0, document.getElementsByClassName('banner').item(0).clientHeight);
-  }
-
 }

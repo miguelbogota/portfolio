@@ -1,222 +1,32 @@
-// Imports
-@import '../../../styles/variables';
-
-// Margin and padding text within nav-bar
-$mrgSize: 22px;
-$pddSize: 11px;
-$mrgBorder: 23px;
-
 /*-----------------------------------------------------------*/
 /*                         Admin                             */
 /*-----------------------------------------------------------*/
 
-// Admin's container
-.admin-container {
-  padding: 10px 0px 53px;
+// Hover effect
+.effect-admin {
+  transition: transform .08s linear;
 
-  // When logged with a valid account
-  .logged {
-
-    // Nav bar for the admin panel
-    .nav-admin {
-      border: 1px solid $txtP;
-      text-align: left;
-      display: block;
-      margin: 0px 0px 30px;
-      padding: $pddSize $mrgBorder;
-      box-sizing: border-box;
-      position: relative;
-      @include effect;
-
-      // Hover effect
-      &:hover {
-        box-shadow: 0 0px 20px 0 #0000001f, 0 10px 30px 0 #00000011;
-        transform: translate(0px, -4px);
-        @include effect;
-      }
-
-      // Account's image
-      img {
-        position: absolute;
-        right: $mrgBorder;
-        top: $pddSize;
-        height: calc( 100% - #{$pddSize} * 2 );
-        border-radius: 50%;
-      }
-      
-      // Title/Name
-      h2 {
-        margin: $mrgSize 0px 0px;
-        font-size: 16px;
-        font-weight: 600;
-      }
-
-      // Link to logout
-      .link {
-        margin: $mrgSize 0px;
-        display: inline-block;
-      }
-    }
-
-    // Title
-    h5 {
-      text-align: center;
-      margin: 20px 0px;
-    }
-
-    // All projects
-    main {
-      padding-top: 10px;
-
-      // Buttons
-      .btn {
-        width: 123px;
-        display: block;
-        margin: 10px auto 23px;
-      }
-
-      // Each project
-      .project {
-        display: block;
-        border: 1px solid $txtP;
-        box-sizing: border-box;
-        line-height: 40px;
-        width: 100%;
-        padding: 0px 5%;
-        margin-bottom: 14px;
-        @include effect;
-
-        // Hover effect
-        &:hover {
-          box-shadow: 0 0px 4px 0 #0000001f, 0 4px 4px 0 #00000011;
-          @include effect;
-        }
-
-        // Text in the box
-        p {
-          text-align: left;
-          display: inline-block;
-          width: calc( 100% - 60px );
-          margin: 0px;
-        }
-
-        // Icons to delete and update
-        .icons-container {
-          display: inline-block;
-          width: 60px;
-          z-index: 200;
-
-          // Each icon
-          .icon {
-            width: 50%;
-            height: 100%;
-            display: inline-block;
-            text-align: center;
-
-            // Click in the icon
-            i {
-              cursor: pointer;
-              width: 18px;
-              height: 18px;
-              color: $txtLightS;
-              @include effect;
-            }
-          }
-
-          // Hover delete button
-          .delete {
-            i {
-              &:hover {
-                color: #d40000;
-              }
-            }
-          }
-          // Hover edit button
-          .edit {
-            i {
-              &:hover {
-                color: #147399;
-              }
-            }
-          }
-        }
-
-      }
-
-      // Messages
-      .message {
-        display: block;
-        border: 1px solid $txtP;
-        box-sizing: border-box;
-        line-height: 20px;
-        width: 100%;
-        margin: 23px 0px 10px;
-        position: relative;
-        @include effect;
-
-        // Hover effect
-        &:hover {
-          box-shadow: 0 0px 4px 0 #0000001f, 0 4px 4px 0 #00000011;
-          @include effect;
-        }
-
-        p {
-          margin: 5px;
-        }
-
-        // Icons to delete and update
-        .icons-container {
-          display: block;
-          position: absolute;
-          top: 10px;
-          right: 26px;
-          width: 18px;
-          z-index: 200;
-
-          // Each icon
-          .icon {
-            width: 100%;
-            height: 100%;
-            text-align: center;
-
-            // Click in the icon
-            i {
-              cursor: pointer;
-              width: 18px;
-              height: 18px;
-              color: $txtLightS;
-              @include effect;
-            }
-          }
-
-          // Hover delete button
-          .delete {
-            i {
-              &:hover {
-                color: #d40000;
-              }
-            }
-          }
-        }
-
-      }
-
-    }
-    
+  // Hover effect
+  &:hover {
+    box-shadow: 0 0px 10px 0 #0000001f, 0 10px 10px 0 #00000011;
+    transform: translate(0px, -1px);
   }
+}
 
-  // Error if not logged or logged with different account
-  .error {
-    display: block;
-    border: 1px solid $txtP;
-    box-sizing: border-box;
-    text-align: center;
-    width: 100%;
-    padding: 30px $mrgBorder;
+// Delete and edit links hover effects
+.lin {
+  transition: color .14s linear;
+  cursor: pointer;
+}
+// Edit
+.lin-edi {
+  &:hover {
+    color: #147399;
   }
-  // Error description
-  p {
-    margin-bottom: 20px;
+}
+// Delete
+.lin-tra {
+  &:hover {
+    color: #d40000;
   }
-
 }
