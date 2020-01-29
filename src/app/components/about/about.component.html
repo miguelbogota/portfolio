@@ -1,31 +1,31 @@
-<!-- Container with the about page -->
+<!-- Container with the about page --
 <div class="about-container">
 
-  <!-- Loading screen while it loads the data -->
+  <!-- Loading screen while it loads the data --
   <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
-  <!-- Data once the data is loaded -->
+  <!-- Data once the data is loaded --
   <ng-template #loaded>
 
-    <!-- About card -->
+    <!-- About card --
     <div class="about">
-      <!-- Profile image -->
+      <!-- Profile image --
       <img class="preview" [src]="data.information1" alt="profile-image-miguelbogota">
-      <!-- Title about me -->
+      <!-- Title about me --
       <h2>{{ universal.information1 }}</h2>
-      <!-- Short parraph about me -->
+      <!-- Short parraph about me --
       <p class="pa-about">
         {{ data.information2 }}
       </p>
-      <!-- Link to go to about -->
+      <!-- Link to go to about --
       <a class="link" [routerLink]="['/contact']" (click)="goUp()">{{ universal.information2 }}</a>
     </div>
 
-    <!-- Skill card -->
+    <!-- Skill card --
     <div class="skills">
-      <!-- Title about me -->
+      <!-- Title about me --
       <h2>{{ universal.information3 }}</h2>
 
-      <!-- Skill bars -->
+      <!-- Skill bars --
       <div class="skill-list" *ngFor="let skill of skills">
         <h3>{{ skill.name }}</h3><div class="bar"><span [ngStyle]="{ 'max-width': initAnimation ? skill.percentage : '0px', 'padding': initAnimation ? '0px 0px 0px 10px' : '0px' }">{{ skill.percentage }}</span></div>
       </div>
@@ -35,3 +35,42 @@
   </ng-template>
   
 </div>
+-->
+
+<!-- Loading screen while it loads the data -->
+<app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+<!-- Data once the data is loaded -->
+<ng-template #loaded>
+  <div class="row mx-0 mb-5 mt-3 text-center">
+
+    <!-- About me section -->
+    <div class="col-md-6 mb-5 px-4">
+      <!-- Progile image -->
+      <img class="rounded-circle mx-auto mb-4" style="width: 168px;" [src]="data.information1" alt="profile-photo">
+      <!-- Title about me -->
+      <h3>{{ universal.information1 }}</h3>
+      <!-- About me -->
+      <p>{{ data.information2 }}</p>
+    </div>
+
+    <!-- Skills section -->
+    <div class="col-md-6">
+
+      <!-- Title for the skills -->
+      <h3 class="mx-3">{{ universal.information3 }}</h3>
+      <!-- Skill bars with title -->
+      <div class="skills" *ngFor="let skill of skills">
+        <!-- Skill title/name -->
+        <p class="m-0 text-left ml-2">{{ skill.name }}</p>
+        <!-- Skill bar -->
+        <div class="progress mb-3" style="height: 1.6rem;" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar pl-3 text-left pt-1 bg-info" [style.width]="skill.percentage">
+            {{ skill.percentage }}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</ng-template>

@@ -1,10 +1,8 @@
-<div class="row mx-0 mb-5 mt-3">
-  <!-- Loading screen while it loads the data -->
-  <div class="col" *ngIf="showSpinner; else loaded">
-    <app-loading-spinner></app-loading-spinner>
-  </div>
-  <!-- Data once the data is loaded -->
-  <ng-template #loaded>
+<!-- Loading screen while it loads the data -->
+<app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
+<!-- Data once the data is loaded -->
+<ng-template #loaded>
+  <div class="row mx-0 mb-5 mt-3">
 
     <!-- Short about me -->
     <div class="col-md-6 mb-5 px-4 d-flex flex-column justify-content-center">
@@ -18,11 +16,9 @@
       <a [routerLink]="['/about']">{{ universal.information1 }}</a>
     </div>
 
-    <!-- Short about me -->
-    <div class="col-md-6" *ngIf="allProjects.length > 0">
+    <!-- Latest projects -->
+    <div class="col-md-6 px-1" *ngIf="allProjects.length > 0">
 
-      <!-- Latest projects -->
-      <div class="mx-1">
         <!-- Card head -->
         <div class="row m-0 mb-3">
           <!-- Left arrow -->
@@ -44,7 +40,5 @@
         <a class="d-block mt-4" [routerLink]="['/portfolio']" (click)="goUp()">{{ universal.information4 }}</a>
       </div>
 
-    </div>
-
-  </ng-template>
-</div>
+  </div>
+</ng-template>
