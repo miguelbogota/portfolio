@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
   messages = []; // Array to store the messages
 
   // Constructor
-  constructor(private projectService: ProjectService, private messageService: MessageService, private auth: AuthService) { }
+  constructor(private projectService: ProjectService, private messageService: MessageService, public auth: AuthService) { }
 
   ngOnInit() {
     // Get size of header and scroll to bottom of it

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/core/services/project.service';
 import { IProject } from 'src/app/core/models/IProject';
-import { DataService } from 'src/app/core/services/data.service';
-import { IData } from 'src/app/core/models/IData';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +16,7 @@ export class HomeComponent implements OnInit {
   cardDireccion = ''; // Card to the left
 
   // Constructor
-  constructor(private projectService: ProjectService, private dataService: DataService) { }
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
     // Get the projects

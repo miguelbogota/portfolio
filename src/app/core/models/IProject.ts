@@ -5,7 +5,7 @@ export interface IProject {
   title: string;
   subtitle: string;
   dateStart: firestore.Timestamp;
-  dateEnd: firestore.FieldValue;
+  dateEnd: firestore.Timestamp;
   imgUrl: string;
   link: string;
   desc: string;
