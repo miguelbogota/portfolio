@@ -15,6 +15,7 @@ export class CropperComponent implements OnInit {
   imageCroppedEvent: ImageCroppedEvent;
   croppedImage: string = ''; // Cropped image in text
 
+  // Constructor
   constructor() { }
 
   ngOnInit() {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 import { map, publishReplay, refCount } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { IData } from '../models/IData';
 
 @Injectable({
@@ -27,7 +27,7 @@ export class DataService {
       })),
       publishReplay(1),
       refCount()
-    )
+    );
   }
 
   // To generate a great ID for each data

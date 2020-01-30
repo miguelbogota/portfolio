@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessagesService } from 'src/app/core/services/messages.service';
+import { MessageService } from 'src/app/core/services/message.service';
+import { IMessage } from 'src/app/core/models/IMessage';
 
 @Component({
   selector: 'app-contact',
@@ -9,26 +10,21 @@ import { MessagesService } from 'src/app/core/services/messages.service';
 })
 export class ContactComponent implements OnInit {
 
-  // Data informacion to contact
-  contact = {
-    id: '',
-    name: '',
-    email: '',
-    message: ''
-  };
+  contact: IMessage; // Data informacion to contact
 
-  constructor(private messageService: MessagesService, private router: Router) { }
+  // Constructor
+  constructor(private messageService: MessageService, private router: Router) { }
 
   ngOnInit() {
-    this.contact.id = this.messageService.generateID();
+    this.contact = this.messageService.getEmptyMessage();
   }
 
-  // Upload data information to firebase
+  // Send information to the database
   submit() {
-    this.messageService.add(this.contact); // Upload information
+    this.messageService.push(this.contact); // Upload information
     // Confirmation input - This will be change in the future to look better
     alert('Tu informacion fue enviada, en los siguientes dias te contactare a el correo que me enviaste :)');
-    this.contact = {id: this.messageService.generateID(), name: '', email: '', message: ''} // Clear contact information
+    this.contact = this.messageService.getEmptyMessage(); // Clear contact information
     this.router.navigate(['//']); // Send user back to the main page
   }
 

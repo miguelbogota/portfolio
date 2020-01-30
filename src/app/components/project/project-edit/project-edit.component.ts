@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectEditComponent implements OnInit {
 
+  // Constructor
   constructor() { }
 
   ngOnInit() {

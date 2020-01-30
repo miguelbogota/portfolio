@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from 'src/app/core/services/project.service';
+import { MessageService } from 'src/app/core/services/message.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { IUser } from 'src/app/core/models/IUser';
-import { MessagesService } from 'src/app/core/services/messages.service';
 
 @Component({
   selector: 'app-admin',
@@ -15,13 +15,13 @@ export class AdminComponent implements OnInit {
   projects = []; // Array to store the projects
   messages = []; // Array to store the messages
 
-  constructor(private projectService: ProjectService, private messageService: MessagesService, private auth: AuthService) { }
+  // Constructor
+  constructor(private projectService: ProjectService, private messageService: MessageService, private auth: AuthService) { }
 
   ngOnInit() {
-
     // Get size of header and scroll to bottom of it
     window.scrollTo(0, document.getElementsByClassName('banner').item(0).clientHeight);
-
+    // Get data from the database
     this.projectService.getAll().subscribe(project => {
       this.projects = project; // Store the projects
     });

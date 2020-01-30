@@ -1,28 +1,30 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-import { map, publishReplay, refCount, finalize } from 'rxjs/operators';
-import { IProject } from '../models/IProject';
 import { AngularFireUploadTask, AngularFireStorage } from '@angular/fire/storage';
+import { map, publishReplay, refCount, finalize } from 'rxjs/operators';
+import { firestore } from 'firebase/app';
+import { Observable } from 'rxjs';
+import { IProject } from '../models/IProject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  private colletionName: string = 'projects';
-  private storageName: string = 'images/projects';
+  private colletionName = 'projects'; // Collection name where the projects will be store
+  private storageLocation = 'images/projects'; // Store location for the images in the database
 
-  public uploadPercent: Observable<number>;
+  public uploadPercent: Observable<number>; // Upload percentage when uploading a project
 
-  private projects: Observable<IProject[]>;
-  private projectCollection: AngularFirestoreCollection<IProject>;
-  private projectDoc: AngularFirestoreDocument<IProject>;
+  private projects: Observable<IProject[]>; // Observable with all the projects
+  private projectCollection: AngularFirestoreCollection<IProject>; // Project collection in the database
+  private projectDoc: AngularFirestoreDocument<IProject>; // Document of the project
 
+  // Constructor
   constructor(private db: AngularFirestore, private storage: AngularFireStorage) {
     // Get the collection
     this.projectCollection = this.db.collection<IProject>(this.colletionName);
-    // Get values
+    // Get values from the database
     this.projects = this.projectCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as IProject;
@@ -34,33 +36,47 @@ export class ProjectService {
     );
   }
 
-  // To generate a great ID for each project
+  // Generates a 8 digit number as ID and return it as a string
   generateID(): string {
     return Math.floor(10000000 + Math.random() * 90000000).toString();
   }
 
-  // Function to get all the projects
+  // Returns an empty project to work on
+  getEmptyProject(): IProject {
+    return {
+      id: this.generateID(),
+      title: '',
+      subtitle: '',
+      dateStart: firestore.Timestamp.fromDate(new Date()),
+      dateEnd: firestore.Timestamp.fromDate(new Date()),
+      imgUrl: '',
+      link: 'https://',
+      desc: ''
+    };
+  }
+
+  // Returns all the projects in the database
   getAll(): Observable<IProject[]> {
     return this.projects;
   }
 
-  // Funtion to get a project with the ID
-  get(id: string) {
+  // Returns a custom project with only the ID
+  get(id: string): AngularFirestoreDocument<IProject> {
     this.projectDoc = this.db.doc(`${this.colletionName}/${id}`);
     return this.projectDoc;
   }
 
-  // Funtion to add a new project
-  add(project: IProject) {
-    let id = project.id; // Save ID
+  // Adds or updates a message to the database
+  push(project: IProject): void {
+    const id = project.id; // Save ID
     delete project.id; // Delete id since I rather not to save it
     this.projectCollection.doc(id).set(project);
   }
 
-  // Funtion to add project with photo
+  // Adds a new project with the photo to the database
   pushProject(project: IProject, img: File): void {
     // Path to upload photo and upload task
-    const fileRef = this.storage.ref(`${this.storageName}/${project.id}`);
+    const fileRef = this.storage.ref(`${this.storageLocation}/${project.id}`);
     const uploadImgTask: AngularFireUploadTask = this.uploadImg(img, project.id);
     // Get URL of the uploaded file
     uploadImgTask.snapshotChanges().pipe(
@@ -69,16 +85,16 @@ export class ProjectService {
         // Save URL for the photo and add project
         fileRef.getDownloadURL().subscribe((url: string) => {
           project.imgUrl = url; // Store URL in the project
-          this.add(project); // Ad project to db
+          this.push(project); // Ad project to db
         });
       })
     ).subscribe();
   }
 
-  // Function to upload pictures to the firebase storage service
+  // Uploads pictures to the firebase storage service
   uploadImg(img: File, id: string): AngularFireUploadTask {
     // Path to upload the picture with the id of the project
-    const filePath: string = `${this.storageName}/${id}`;
+    const filePath = `${this.storageLocation}/${id}`;
     // Upload picture
     const task: AngularFireUploadTask = this.storage.upload(filePath, img);
     // Get the upload percentage as Observable
@@ -87,13 +103,8 @@ export class ProjectService {
     return task;
   }
 
-  // Funtion to update the data in a document
-  update() {
-
-  }
-
-  // Funtion to delete a document
-  delete(id: string) {
+  // Deletes a project from the database
+  delete(id: string): void {
     this.get(id);
     this.projectDoc.delete();
   }

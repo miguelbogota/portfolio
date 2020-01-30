@@ -1,42 +1,3 @@
-<!-- Container with the about page --
-<div class="about-container">
-
-  <!-- Loading screen while it loads the data --
-  <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
-  <!-- Data once the data is loaded --
-  <ng-template #loaded>
-
-    <!-- About card --
-    <div class="about">
-      <!-- Profile image --
-      <img class="preview" [src]="data.information1" alt="profile-image-miguelbogota">
-      <!-- Title about me --
-      <h2>{{ universal.information1 }}</h2>
-      <!-- Short parraph about me --
-      <p class="pa-about">
-        {{ data.information2 }}
-      </p>
-      <!-- Link to go to about --
-      <a class="link" [routerLink]="['/contact']" (click)="goUp()">{{ universal.information2 }}</a>
-    </div>
-
-    <!-- Skill card --
-    <div class="skills">
-      <!-- Title about me --
-      <h2>{{ universal.information3 }}</h2>
-
-      <!-- Skill bars --
-      <div class="skill-list" *ngFor="let skill of skills">
-        <h3>{{ skill.name }}</h3><div class="bar"><span [ngStyle]="{ 'max-width': initAnimation ? skill.percentage : '0px', 'padding': initAnimation ? '0px 0px 0px 10px' : '0px' }">{{ skill.percentage }}</span></div>
-      </div>
-
-    </div>
-  
-  </ng-template>
-  
-</div>
--->
-
 <!-- Loading screen while it loads the data -->
 <app-loading-spinner *ngIf="showSpinner; else loaded"></app-loading-spinner>
 <!-- Data once the data is loaded -->
@@ -46,18 +7,22 @@
     <!-- About me section -->
     <div class="col-md-6 mb-5 px-4">
       <!-- Progile image -->
-      <img class="rounded-circle mx-auto mb-4" style="width: 168px;" [src]="data.information1" alt="profile-photo">
+      <img class="rounded-circle mx-auto mb-4" style="width: 168px;" src="https://firebasestorage.googleapis.com/v0/b/miguelporfolio.appspot.com/o/logo.jpeg?alt=media&token=80a3a9e0-1f5c-4f6b-a889-1633afaa719c" alt="profile-photo">
       <!-- Title about me -->
-      <h3>{{ universal.information1 }}</h3>
+      <h3>Acerca de mí</h3>
       <!-- About me -->
-      <p>{{ data.information2 }}</p>
+      <p>
+        Mi nombre es Miguel, Tengo 23 años, soy de Bogotá, Colombia y soy desarrollador de software Full Stack con experiencia en Front-End y Back-End. Actualmente estoy cursando un Tecnico en Desarrollo de Software. Si necesitas ayuda con tu proyecto enviame un correo en la página de contacto. Estare a la espera de tu información.
+      </p>
+      <!-- Link to contact me -->
+      <a [routerLink]="['/contact']">Trabajemos juntos</a>
     </div>
 
     <!-- Skills section -->
     <div class="col-md-6">
 
       <!-- Title for the skills -->
-      <h3 class="mx-3">{{ universal.information3 }}</h3>
+      <h3 class="mx-3">Habilidades</h3>
       <!-- Skill bars with title -->
       <div class="skills" *ngFor="let skill of skills">
         <!-- Skill title/name -->

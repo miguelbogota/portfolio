@@ -22,20 +22,12 @@ export class ProjectNewComponent implements OnInit {
   imgSelected: File = null; // Images that will be loaded
   uploadPercentage: number; // Percentage for upload
 
+  // Constructor
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
     this.uploadPercentage = -1;
-    this.project = {
-      id: this.newID,
-      title: '',
-      subtitle: '',
-      dateStart: firestore.Timestamp.fromDate(new Date()),
-      dateEnd: firestore.Timestamp.fromDate(new Date()),
-      imgUrl: '',
-      link: 'https://',
-      desc: ''
-    };
+    this.project = this.projectService.getEmptyProject();
   }
 
   // Function to add project
@@ -55,16 +47,7 @@ export class ProjectNewComponent implements OnInit {
       (err: Error) => { console.log(err); },
       // Clear project once is finished
       () => {
-        this.project = {
-          id: this.projectService.generateID(),
-          title: '',
-          subtitle: '',
-          dateStart: firestore.Timestamp.fromDate(new Date()),
-          dateEnd: firestore.Timestamp.fromDate(new Date()),
-          imgUrl: '',
-          link: 'https://',
-          desc: ''
-        };
+        this.project = this.projectService.getEmptyProject();
         this.dateFrom = '';
         this.dateTo = '';
         this.croppper.removeImage();
@@ -74,4 +57,5 @@ export class ProjectNewComponent implements OnInit {
 
   // Get image from the child
   getMedia($event: any): void { this.imgSelected = $event; }
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { IProject } from 'src/app/core/models/IProject';
 
 @Component({
   selector: 'app-project-card',
@@ -7,8 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProjectCardComponent implements OnInit {
 
-  @Input() Data;
+  @Input() project: IProject; // Project from the parent component
 
+  // Constructor
   constructor() { }
 
   ngOnInit() {

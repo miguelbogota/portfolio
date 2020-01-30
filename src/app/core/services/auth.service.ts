@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from "@angular/fire/auth";
-import { auth } from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
-import { IUser } from "../models/IUser";
+import { auth } from 'firebase/app';
+import { IUser } from '../models/IUser';
 import { email } from 'src/environments/key';
 
 @Injectable({
@@ -10,13 +10,13 @@ import { email } from 'src/environments/key';
 })
 export class AuthService {
 
-  public isLogged: boolean = false; // Check if the right user is logged
+  public isLogged = false; // Check if the right user is logged
   public userData: Observable<IUser>; // Save logged in user data
 
-  constructor(private afAuth: AngularFireAuth) {    
+  constructor(private afAuth: AngularFireAuth) {
     // Get the user from the SignIn
     this.userData = this.afAuth.authState;
-
+    // Get data if user is logged with the right user
     this.userData.subscribe(user => {
       // Check is logged
       if (user != null) {
@@ -24,13 +24,12 @@ export class AuthService {
         if (user.email === email) { this.isLogged = true; }
       }
     });
-
   }
 
   // Sign in with Google
   SignIn() { return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()); }
 
-  // Sign out 
+  // Sign out from Google
   SignOut() { this.afAuth.auth.signOut(); this.isLogged = false; }
-  
+
 }

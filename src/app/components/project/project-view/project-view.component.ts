@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IProject } from 'src/app/core/models/IProject';
-import { ProjectService } from 'src/app/core/services/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectService } from 'src/app/core/services/project.service';
+import { IProject } from 'src/app/core/models/IProject';
 
 @Component({
   selector: 'app-project-view',
@@ -12,8 +12,9 @@ export class ProjectViewComponent implements OnInit {
 
   id: string; // Get ID to query
   project: IProject; // Project to show
-  showSpinner: boolean = true; // loading screen validation
+  showSpinner = true; // loading screen validation
 
+  // Constructor
   constructor(private projectService: ProjectService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
