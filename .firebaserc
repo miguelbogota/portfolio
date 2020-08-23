@@ -1,5 +1,11 @@
 {
-  "projects": {
-    "default": "miguelporfolio"
+  "targets": {
+    "miguelbogotadev": {
+      "hosting": {
+        "portfolio": [
+          "miguelbogotadev"
+        ]
+      }
+    }
   }
 }

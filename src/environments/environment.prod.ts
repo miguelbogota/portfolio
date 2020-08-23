@@ -1,7 +1,6 @@
-// Keys are hidden for security reasons, add yours in here
-import { key } from './key';
+import { firebaseCredentials } from './environment.key';
 
 export const environment = {
   production: true,
-  firebase: key
+  firebase: firebaseCredentials
 };
